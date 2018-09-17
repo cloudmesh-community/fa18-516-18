@@ -1,6 +1,8 @@
 # Week Fri 09/07/18 - 09/13/18
 * Went through lectures for Python and Data Center
 * Set up pyenv and pycharm for python code development
+* Contributed to Python Chapter for Lambda, Generators and Subprocess for cloud
+* Went through some class lectures for REST API and OpenAPI
 
 # Week Fri 08/31/18 - 09/06/18
 * Virtual Machine Setup
