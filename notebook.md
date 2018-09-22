@@ -3,6 +3,7 @@
 * Set up libcloud and Python Eve for python code development
 * Contributed to AWS Chapter for AWS Lambda and Data Center
 * Participated in some discussions
+* Started a small instance on Chameleon Cloud and stopped it
 
 # Week Fri 09/07/18 - 09/13/18
 * Went through lectures for Python and Data Center
