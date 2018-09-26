@@ -1,4 +1,4 @@
-# TITLE
+## TITLE
 
 Manage Files Across Cloud Providers
 
@@ -11,11 +11,11 @@ The goal of this project is to manage files across different cloud providers. Th
 
 Multi-cloud data service, Cloud Computing, Python, Open API, Cloud Providers
 
-## 1. INTRODUCTION
+### 1. INTRODUCTION
 
 The objective of this project is to manage data across different cloud providers. We are going to build an Open API for managing the data between all the cloud storages. We will analyse how these different clouds work and then build python methods to handle data across them. Final step will be to expose these functionalities as an API.
 
-2. IMPLEMENTATION DETAILS
+### 2. IMPLEMENTATION DETAILS
 
-3. ARTIFACTS
-4. REFERENCES
+### 3. ARTIFACTS
+### 4. REFERENCES
