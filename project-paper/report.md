@@ -11,4 +11,4 @@ The goal of this project is to manage files across different cloud providers. Th
 
 Multi-cloud data service, Cloud Computing, Python, Open API, Cloud Providers
 
-### 1. INTRODUCTION
+1. INTRODUCTION
