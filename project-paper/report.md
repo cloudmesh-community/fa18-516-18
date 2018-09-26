@@ -18,9 +18,13 @@ The objective of this project is to manage data across different cloud providers
 ### 2. IMPLEMENTATION DETAILS
 
 OpenAPI specification for copy function
-	Boolean isFileCopied = copyFile({name of the file}, {source cloud provider}, {destination cloud provider})
+	Boolean isFileCopied = copyFile({name of the file}, {source cloud provider}, {destination cloud provider}) 
+	
 Similarly we can have API for other functionalities as well. We can also split verification into a separate API because this might be commonly used across all functionalities.
 
 
 ### 3. ARTIFACTS
+
+* Project Proposal
+
 ### 4. REFERENCES
