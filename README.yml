@@ -3,3 +3,25 @@ owner:
   lastname: "Rastogi"
   hid: "fa18-516-18"
   community: "e516"
+section:
+  -title: Python Installation
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-install.md#install-pyenv-on-ubuntu
+  -title: PyChram Installation
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-editor.md
+  -title: Data Centers
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/cloud/datacenter.md#data-center-carbon-footprint
+  -title: Lambda Expressions
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python.md#lambda-expressions-new
+  -title: Generators
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python.md#generators-new
+  -title: SubProcess
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python.md#subprocess
+chapter:
+  -title: AWS Lambda
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/iaas/aws/aws-lambda.md
+project:
+  -title: To Be Approved
+    url: TBA
+other:
+  -title: Spell fix
+    url: https://github.com/cloudmesh-community/book/commit/abb2464a00e5658531d5ebeafd260c61060190c5#diff-f0457bbb05d4eafc8363cccf9b4168a1
