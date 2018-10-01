@@ -1,4 +1,12 @@
-# Week Fri 09/14/18 - 09/21/18
+# Week Fri 09/21/18 - 09/28/18
+* Working on Project Proposal
+* Studying more on different cloud services and how to connect to them
+* Fixed Pycharm, was not working for libcloud 
+* Setting up Eve for openAPI development
+* Studying Map/Reduce and starting Chapter on it
+* Updated README.yml to show all my contributions
+
+# Week Fri 09/14/18 - 09/20/18
 * Went through lectures for Python libcloud and REST
 * Set up libcloud and Python Eve for python code development
 * Contributed to AWS Chapter for AWS Lambda and Data Center
