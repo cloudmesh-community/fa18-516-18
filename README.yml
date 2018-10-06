@@ -19,6 +19,8 @@ section:
 chapter:
   -title: AWS Lambda
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/iaas/aws/aws-lambda.md
+  -title: MapReduce with Hadoop and Spark
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/mapreduce/mapreduce.md
 project:
   -title: To Be Approved
     url: TBA
