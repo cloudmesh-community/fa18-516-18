@@ -1,4 +1,13 @@
-# Week Fri 09/21/18 - 09/28/18
+# Week Fri 10/05/18 - 10/11/18
+* Working on project
+* Corrected MapReduce chapter
+
+# Week Fri 09/28/18 - 10/04/18
+* Worked on Chapter for Mapreduce, created bib file for reference 
+* Understanding more on my project and inititated Project proposal
+* Worked on Chameleon cloud python code for project
+
+# Week Fri 09/21/18 - 09/27/18
 * Working on Project Proposal
 * Studying more on different cloud services and how to connect to them
 * Fixed Pycharm, was not working for libcloud 
