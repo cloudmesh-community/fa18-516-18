@@ -4,26 +4,26 @@ owner:
   hid: "fa18-516-18"
   community: "e516"
 section:
-  -title: Python Installation
+  - title: Python Installation
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-install.md#install-pyenv-on-ubuntu
-  -title: PyChram Installation
+  - title: PyChram Installation
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-editor.md
-  -title: Data Centers
+  - title: Data Centers
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/cloud/datacenter.md#data-center-carbon-footprint
-  -title: Lambda Expressions
+  - title: Lambda Expressions
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python.md#lambda-expressions-new
-  -title: Generators
+  - title: Generators
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python.md#generators-new
-  -title: SubProcess
+  - title: SubProcess
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python.md#subprocess
 chapter:
-  -title: AWS Lambda
+  - title: AWS Lambda
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/iaas/aws/aws-lambda.md
-  -title: MapReduce with Hadoop and Spark
+  - title: MapReduce with Hadoop and Spark
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/mapreduce/mapreduce.md
 project:
-  -title: To Be Approved
+  - title: To Be Approved
     url: TBA
 other:
-  -title: Spell fix
+  - title: Spell fix
     url: https://github.com/cloudmesh-community/book/commit/abb2464a00e5658531d5ebeafd260c61060190c5#diff-f0457bbb05d4eafc8363cccf9b4168a1
