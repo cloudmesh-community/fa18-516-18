@@ -16,7 +16,7 @@ section:
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python.md#generators-new
   - title: SubProcess
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python.md#subprocess
-chapter:
+paper:
   - title: AWS Lambda
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/iaas/aws/aws-lambda.md
   - title: MapReduce with Hadoop and Spark
