@@ -7,6 +7,7 @@ with open('setup.yaml', 'r') as f:
     # use safe_load instead load
     dataMap = yaml.safe_load(f)
 
+
 def download_file(filename):
     session = boto3.Session(aws_access_key_id=aws_setup.dataMap['cloud']['aws']['credentials']['S3_ACCESS_ID'],
                             aws_secret_access_key=aws_setup.dataMap['cloud']['aws']['credentials']['S3_SECRET_KEY'])
