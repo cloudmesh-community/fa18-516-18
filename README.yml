@@ -3,6 +3,7 @@ owner:
   lastname: "Rastogi"
   hid: "fa18-516-18"
   community: "e516"
+  semester: "fa18"
 section:
   - title: Python Installation
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-install.md#install-pyenv-on-ubuntu
@@ -22,7 +23,7 @@ paper:
   - title: MapReduce with Hadoop and Spark
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/mapreduce/mapreduce.md
 project:
-  - title: To Be Approved
+  - title: Manage Files across multiple Cloud Providers
     url: TBA
 other:
   - title: Spell fix
