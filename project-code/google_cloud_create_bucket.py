@@ -12,4 +12,3 @@ def create_service(bucket_name):
     return discovery.build('storage', 'v1', http=http_auth)
 
 create_service('test_richa')
-

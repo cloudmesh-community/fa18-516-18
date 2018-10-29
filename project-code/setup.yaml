@@ -7,9 +7,9 @@ cloud:
     aws:
       kind:                               aws
       credentials:
-        S3_ACCESS_ID:                     'XXXXXXXXXXXXXXXXX'
-        S3_SECRET_KEY:                    'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-      bucket_name:                        'aws_bucket_name'
+        S3_ACCESS_ID:                     'AKIAJQGECV3VLF4LM6CQ'
+        S3_SECRET_KEY:                    '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'
+      bucket_name:                        'richa-516'
     openstack:
       kind:                               openstack
       credentials:
@@ -19,4 +19,4 @@ cloud:
       kind:                               google cloud
       credentials:
         GOOGLE_CLOUD_CREDENTIALS_JSON:    '/home/richa/Documents/Richa-Google-Storage-3c6c1eb80421.json'
-      bucket_name:                        'google_bucket_name'
+      bucket_name:                        'richa-cloud-516'

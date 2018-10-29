@@ -13,4 +13,3 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = dataMap['cloud']['google_cloud'][
 storage_client = storage.Client()
 # The name for the bucket
 bucket_name = dataMap['cloud']['google_cloud']['bucket_name']
-

@@ -1,6 +1,8 @@
 import aws_setup
 
+
 FILE_PATH = '/home/richa/Documents/abc.txt'
+
 
 extra = {'meta_data': {
     'owner': 'Richa',

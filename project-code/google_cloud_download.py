@@ -10,4 +10,3 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
         destination_file_name))
 
 download_blob(google_cloud_setup.bucket_name,'MapReduce.docx','/home/richa/Documents/MapReduce.docx')
-
