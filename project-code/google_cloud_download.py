@@ -1,12 +1,13 @@
 import google_cloud_setup
+import yaml
 
-def download_blob(bucket_name, source_blob_name, destination_file_name):
+with open('setup.yaml', 'r') as f:
+    # use safe_load instead load
+    dataMap = yaml.safe_load(f)
+
+def download_blob(filename):
     """Downloads a blob from the bucket."""
-    bucket = google_cloud_setup.storage_client.get_bucket(bucket_name)
-    blob = bucket.blob(source_blob_name)
-    blob.download_to_filename(destination_file_name)
-    print('Blob {} downloaded to {}.'.format(
-        source_blob_name,
-        destination_file_name))
-
-download_blob(google_cloud_setup.bucket_name,'MapReduce.docx','/home/richa/Documents/MapReduce.docx')
+    bucket = google_cloud_setup.storage_client.get_bucket(google_cloud_setup.bucket_name)
+    blob = bucket.blob(filename)
+    blob.download_to_filename(dataMap['local_directory']+filename)
+    print('Blob {} downloaded to {}.'.format(filename, dataMap['local_directory']+filename))

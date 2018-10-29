@@ -14,8 +14,6 @@ while 1:
         print("################################")
         listFiles()
         print("################################")
-    elif (choice == 0):
-        exit(0)
     elif (choice == 2):
         print ("###############################")
         filePath=""
@@ -26,5 +24,6 @@ while 1:
         while (targetCloud!="s3" and targetCloud!="gc"):
             targetCloud = input("Enter Target Cloud(s3/gc) ")
         moveFile(filePath, targetCloud)
-        #listFiles()
         print("###############################")
+    elif (choice == 0):
+        exit(0)

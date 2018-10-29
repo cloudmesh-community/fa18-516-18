@@ -1,22 +1,29 @@
 import re
-def moveFile(filePath, targetCloud):
+import s3_download
+import google_cloud_upload
+import google_cloud_download
+import s3_upload
+
+def moveFile(filepath, targetcloud):
     #match format
-    if re.compile("^(s3://|gc://)").match(filePath) is None:
+    if re.compile("^(s3://|gc://)").match(filepath) is None:
         print("Incorrect filename...")
         return
-    filePathParsed = re.search(r"^(s3|gc)://(.*)/(.*)", filePath)
-    sourceCloud = filePathParsed.group(1)
-    bucket = filePathParsed.group(2)
-    fileName = filePathParsed.group(3)
-    print("sourceCloud="+sourceCloud+"\nbucket="+bucket+"\nfilename="+fileName)
-    if sourceCloud == targetCloud:
+    filepathparsed = re.search(r"^(s3|gc)://(.*)/(.*)", filepath)
+    sourcecloud = filepathparsed.group(1)
+    bucket = filepathparsed.group(2)
+    filename = filepathparsed.group(3)
+    print("sourceCloud="+sourcecloud+"\nbucket="+bucket+"\nfilename="+filename)
+    if sourcecloud == targetcloud:
         print("Target cloud needs to different than the source cloud")
         exit
+    if filepath.startswith("s3"):
+        s3_download.download_file(filename)
+        if targetcloud == 'gc':
+            google_cloud_upload.upload_blob(filename)
 
-#    if filePath.startswith("s3"):
-
-
- #   elif filePath.startswith("gc"):
-
-
+    elif filepath.startswith("gc"):
+        google_cloud_download.download_blob(filename)
+        if targetcloud == 's3':
+            s3_upload.upload_file(filename)
     return
