@@ -7,8 +7,8 @@ cloud:
     aws:
       kind:                               aws
       credentials:
-        S3_ACCESS_ID:                     'AKIAI6CFBH3DH6VIP2TA'
-        S3_SECRET_KEY:                    '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'
+        S3_ACCESS_ID:                     'XXXXXXXXXXXX'
+        S3_SECRET_KEY:                    'XXXXXXXXXXXXXXXXXXXXXXXX'
       bucket_name:                        'richa-516'
     openstack:
       kind:                               openstack
