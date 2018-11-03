@@ -3,7 +3,7 @@ cloud:
       kind:                               azure
       credentials:
         AZURE_SUBSCRIPTION_ID:            'xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-        AZURE_MANAGEMENT_CERT_PATH:       'C:/Demo/azure_cert.pem'
+        AZURE_MANAGEMENT_CERT_PATH:       'azure_cert.pem'
     aws:
       kind:                               aws
       credentials:
