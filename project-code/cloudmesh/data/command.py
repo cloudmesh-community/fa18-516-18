@@ -6,6 +6,7 @@ Usage:
   cm4 data get FILE
   cm4 data get FILE DEST_FOLDER
   cm4 data del FILE
+  cm4 data move source dest FILE
   cm4 data (ls | dir)
   cm4 set cloud=CLOUD
   cm4 set group=GROUP
@@ -30,16 +31,29 @@ Example:
 """
 from docopt import docopt
 
+from cloudmesh.data import google_cloud_upload, google_cloud_download
+
 
 def main():
     """
-    Main function for the Vagrant Manager. Processes the input arguments.
+    Main function for the Data Manager. Processes the input arguments.
     """
     version = 1.0
     arguments = docopt(__doc__, version=version)
     if arguments['data'] and arguments['add']:
         file = arguments['FILE']
+        google_cloud_upload.upload_blob(file)
         print('Hello', file)
+
+    if arguments['data'] and arguments['get']:
+        file = arguments['FILE']
+        google_cloud_download.download_blob(file)
+
+    if arguments['data'] and arguments['move'] and arguments['source'] and arguments['dest']:
+        file = arguments['FILE']
+        
+
+
 
 
 if __name__ == "__main__":

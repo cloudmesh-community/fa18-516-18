@@ -1,4 +1,5 @@
-import google_cloud_setup
+from cloudmesh.data import google_cloud_setup
+
 
 def list_object():
     bucket = google_cloud_setup.storage_client.get_bucket(google_cloud_setup.bucket_name)

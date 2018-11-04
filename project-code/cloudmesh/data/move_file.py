@@ -1,8 +1,7 @@
 import re
-import s3_download
-import google_cloud_upload
-import google_cloud_download
-import s3_upload
+
+from cloudmesh.data import s3_download, google_cloud_download, s3_upload, google_cloud_upload
+
 
 def moveFile(filepath, targetcloud):
     #match format

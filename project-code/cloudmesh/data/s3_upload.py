@@ -1,5 +1,7 @@
-import aws_setup
+
 import yaml
+
+from cloudmesh.data import aws_setup
 
 with open('setup.yaml', 'r') as f:
     # use safe_load instead load

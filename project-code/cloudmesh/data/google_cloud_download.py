@@ -1,9 +1,12 @@
-import google_cloud_setup
+
 import yaml
+
+from cloudmesh.data import google_cloud_setup
 
 with open('setup.yaml', 'r') as f:
     # use safe_load instead load
     dataMap = yaml.safe_load(f)
+
 
 def download_blob(filename):
     """Downloads a blob from the bucket."""

@@ -1,7 +1,10 @@
-import google_cloud_setup
+
 from oauth2client.service_account import ServiceAccountCredentials
 from httplib2 import Http
 from googleapiclient import discovery
+
+from cloudmesh.data import google_cloud_setup
+
 
 def create_service(bucket_name):
     bucket = google_cloud_setup.storage_client.create_bucket(bucket_name)

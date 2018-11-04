@@ -1,2 +1,2 @@
 # !/bin/sh
-python command.py data add xyz
+python cloudmesh/data/command.py data add xyz2.txt

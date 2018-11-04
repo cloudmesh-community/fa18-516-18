@@ -1,9 +1,12 @@
-import google_cloud_setup
+
 import yaml
+
+from cloudmesh.data import google_cloud_setup
 
 with open('setup.yaml', 'r') as f:
     # use safe_load instead load
     dataMap = yaml.safe_load(f)
+
 
 def upload_blob(filename):
     """Uploads a file to the bucket."""
@@ -13,3 +16,7 @@ def upload_blob(filename):
     print('File {} uploaded to {}.'.format(
         dataMap['local_directory']+filename,
         filename))
+
+
+
+#upload_blob('xyz2.txt')

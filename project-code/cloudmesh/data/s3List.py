@@ -1,8 +1,9 @@
-import aws_setup
+
 import boto3
 
 #aws_list = aws_setup.driver.list_container_objects(aws_setup.container)
 #print(aws_list)
+from cloudmesh.data import aws_setup
 
 
 def list_objects():

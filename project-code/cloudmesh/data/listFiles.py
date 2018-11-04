@@ -1,5 +1,5 @@
-import s3List
-import google_cloud_list
+from cloudmesh.data import google_cloud_list, s3List
+
 
 def listFiles():
     aws_files = s3List.list_objects()
