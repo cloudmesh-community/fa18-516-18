@@ -1,6 +1,4 @@
-
 import yaml
-
 from cloudmesh.data import google_cloud_setup
 
 with open('setup.yaml', 'r') as f:
@@ -19,4 +17,4 @@ def upload_blob(filename):
 
 
 
-#upload_blob('xyz2.txt')
+#upload_blob('MapReduce.docx')

@@ -31,7 +31,7 @@ Example:
 """
 from docopt import docopt
 
-from cloudmesh.data import google_cloud_upload, google_cloud_download
+from cloudmesh.data import google_cloud_upload
 
 
 def main():
@@ -45,13 +45,8 @@ def main():
         google_cloud_upload.upload_blob(file)
         print('Hello', file)
 
-    if arguments['data'] and arguments['get']:
-        file = arguments['FILE']
-        google_cloud_download.download_blob(file)
 
-    if arguments['data'] and arguments['move'] and arguments['source'] and arguments['dest']:
-        file = arguments['FILE']
-        
+
 
 
 
