@@ -46,10 +46,5 @@ def main():
         print('Hello', file)
 
 
-
-
-
-
-
 if __name__ == "__main__":
     main()

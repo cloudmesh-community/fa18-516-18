@@ -18,6 +18,6 @@ cloud:
     google_cloud:
       kind:                               google cloud
       credentials:
-        GOOGLE_CLOUD_CREDENTIALS_JSON:    '/home/richa/Documents/Richa-Google-Storage-XXXXXXXXXXX.json'
+        GOOGLE_CLOUD_CREDENTIALS_JSON:    '/home/richa/Documents/Richa-Google-Storage-3c6c1eb80421.json'
       bucket_name:                        'richa-cloud-516'
 local_directory:                          '/home/richa/Documents/project_cloud_files/'

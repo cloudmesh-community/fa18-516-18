@@ -25,16 +25,16 @@ from setuptools import setup, find_packages
 
 __version__ = None  # surpress the version error
 # don't use import to get the version as that causes a circular dependency
-exec(open('cm4/__init__.py').read().strip())
+#exec(open('cm4/__init__.py').read().strip())
 
 #
 # TODO: update to the newest versions
 #
-if sys.version_info > (3, 7, 0):
-    print(70 * "#")
-    print("WARNING: upgrade to a python greater than 3.7.0 "
-          "other version are not supported. Your version is {}. failed.".format(sys.version_info))
-    print(70 * "#")
+# if sys.version_info > (3, 7, 0):
+#    print(70 * "#")
+#    print("WARNING: upgrade to a python greater than 3.7.0 "
+#          "other version are not supported. Your version is {}. failed.".format(sys.version_info))
+#    print(70 * "#")
 
 command = None
 this_platform = platform.system().lower()
