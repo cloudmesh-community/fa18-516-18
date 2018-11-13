@@ -1,21 +1,22 @@
 """Data Manager.
 
 Usage:
-  cm4 data add FILE
-  cm4 data add SERVICE FILE
-  cm4 data get FILE
-  cm4 data get FILE DEST_FOLDER
-  cm4 data del FILE
-  cm4 data move source dest FILE
-  cm4 data (ls | dir)
-  cm4 set cloud=CLOUD
-  cm4 set group=GROUP
-  cm4 set role=ROLE
-  cm4 set host=HOSTNAME
-  cm4 set cluster=CLUSTERNAME
-  cm4 set experiment=EXPERIMENT
-  cm4 (-h | --help)
-  cm4 --version
+  cmdata test
+  cmdata data add FILE
+  cmdata data add SERVICE FILE
+  cmdata data get FILE
+  cmdata data get FILE DEST_FOLDER
+  cmdata data del FILE
+  cmdata data move source dest FILE
+  cmdata data (ls | dir)
+  cmdata set cloud=CLOUD
+  cmdata set group=GROUP
+  cmdata set role=ROLE
+  cmdata set host=HOSTNAME
+  cmdata set cluster=CLUSTERNAME
+  cmdata set experiment=EXPERIMENT
+  cmdata (-h | --help)
+  cmdata --version
 
 Options:
   -h --help     Show this screen.
@@ -44,6 +45,9 @@ def main():
         file = arguments['FILE']
         google_cloud_upload.upload_blob(file)
         print('Hello', file)
+
+    elif arguments['test']:
+        print('Hello Test')
 
 
 if __name__ == "__main__":

@@ -23,7 +23,7 @@ import sys
 
 from setuptools import setup, find_packages
 
-__version__ = None  # surpress the version error
+__version__ = '0.0.1'  # surpress the version error
 # don't use import to get the version as that causes a circular dependency
 #exec(open('cm4/__init__.py').read().strip())
 
@@ -107,7 +107,7 @@ setup(
     #
     entry_points={
         'console_scripts': [
-            'cm4 = cm4.command.command:main',
+            'cmdata = cloudmesh.data.command:main',
         ],
     },
     # tests_require=['tox'],

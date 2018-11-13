@@ -1,7 +1,0 @@
-docopt
-colorama
-termcolor
-python-hostlist
-apache-libcloud
-oyaml
-coverage
