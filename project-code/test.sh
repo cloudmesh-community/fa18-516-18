@@ -1,4 +1,6 @@
 # !/bin/sh
-#python command.py data add xyz
 cmdata test
-cmdata data add MapReduce.docx
+#cmdata data add MapReduce.docx
+#cmdata data get MapReduce.docx
+#cmdata data ls
+cmdata data move xyz aws google

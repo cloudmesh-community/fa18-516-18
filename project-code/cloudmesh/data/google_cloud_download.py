@@ -7,3 +7,5 @@ def download_blob(filename):
     blob = bucket.blob(filename)
     blob.download_to_filename(google_cloud_setup.dataMap['local_directory']+filename)
     print('Blob {} downloaded to {}.'.format(filename, google_cloud_setup.dataMap['local_directory']+filename))
+
+#download_blob('yosemite valley lodge stay.pdf')
