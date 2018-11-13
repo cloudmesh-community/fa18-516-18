@@ -1,9 +1,10 @@
+google
 docopt
 colorama
 termcolor
 python-hostlist
 apache-libcloud
-oyaml
+pyyaml
 coverage
 google-cloud-storage
 google-auth

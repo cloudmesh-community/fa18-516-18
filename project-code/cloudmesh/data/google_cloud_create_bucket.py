@@ -1,4 +1,3 @@
-
 from oauth2client.service_account import ServiceAccountCredentials
 from httplib2 import Http
 from googleapiclient import discovery
@@ -14,4 +13,4 @@ def create_service(bucket_name):
     http_auth = credentials.authorize(Http())
     return discovery.build('storage', 'v1', http=http_auth)
 
-create_service('test_richa')
+#create_service('test_richa')
