@@ -1,0 +1,106 @@
+swagger: "2.0"
+info:
+  description: User profiles are used to store information about users. User
+    information can be reused in other services. This is useful to
+    access files and upload or download them to cloud machines.  Profiles can
+    be added, removed and listed. A group in the profile can be used
+    to augment users to be part of one or more groups.  A number of
+    roles can specify a specific role of a user.
+
+  version: "1.0.0"
+  title: file
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /cloudmesh
+
+paths:
+  /user/profile:
+    get:
+      tags:
+        - "profile"
+      description: "Returns all profiles"
+      operationId: get_profile
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "profile information"
+          schema:
+            $ref: "#/definitions/Profile"
+    put:
+      tags:
+        - "profile"
+      summary: "Create a new profile"
+      description: "Create a new profile"
+      operationId: add_profile
+      parameters:
+        - in: body
+          name: profile
+          description: "The new profile to create"
+          schema:
+            $ref: "#/definitions/Profile"
+      responses:
+        "201":
+          description: Created
+  /user/profile/{uuid}:
+    get:
+      tags:
+        - "profile"
+      description: "Returns the profile of a user while looking it up with the UUID"
+      operationId: getProfileByUuid
+      parameters:
+        - name: uuid
+          in: path
+          required: true
+          type: string
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "profile information"
+          schema:
+            $ref: "#/definitions/Profile"
+definitions:
+  Profile:
+    type: "object"
+    properties:
+      uuid:
+        type: "string"
+        description: A unique id for the profile
+      username:
+        type: "string"
+        description: The username associated with the profile
+      group:
+        type: array
+        description: A list of groups that are associated to the profile
+        items:
+          type: "string"
+      role:
+        type: array
+        description: A list of groups that are associated to the profile
+        items:
+          type: "string"
+      resource:
+        type: "string"
+        description: A resource this profile may belong to
+      context:
+        type: "string"
+        description: The context the profile may belong to
+      description:
+        type: "string"
+        description: A description for this profile
+      firstname:
+        type: "string"
+        description: The firstanme of the profile user
+      lastname:
+        type: "string"
+        description: The lastname of the profile user
+      publickey:
+        type: "string"
+        description: The lastname of the profile user
+      email:
+        type: "string"
+        description: The email of the profile user

@@ -1,0 +1,80 @@
+swagger: "2.0"
+info:
+  description: A file is a computer resource allowing storage of data that is
+    being processed. The interface to a file provides the mechanism to
+    appropriately locate a file in a distributed system. File
+    identification includes the name, endpoint, checksum, and
+    size. Additional parameters, such as the last access time, could
+    also be stored. The interface only describes the location of the
+    file.  The file object has name, endpoint (location), size in GB,
+    MB, Byte, checksum for integrity check, and last accessed
+    timestamp.
+  version: "1.0.0"
+  title: file
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /cloudmesh
+
+paths:
+  /files:
+    get:
+      description: Returns all files
+      operationId: get_file
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: file info
+          schema:
+            $ref: '#/definitions/File'
+    put:
+      summary: Create a new file
+      operationId: add_file
+      parameters:
+        - in: body
+          name: file
+          description: The new file to create
+          schema:
+            $ref: '#/definitions/File'
+      responses:
+        '201':
+          description: Created
+  '/file/{name}':
+    get:
+      description: Returns a file
+      operationId: get_file_by_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: file info
+          schema:
+            $ref: '#/definitions/File'
+definitions:
+  File:
+    type: object
+    description: the file
+    properties:
+      name:
+        type: string
+        description: the name of the file
+      endpoint:
+        type: string
+        description: The location of the file
+      checksum:
+        type: string
+        description: The checksum of the file
+      size:
+        type: integer
+        description: The size of the file in byte
+      timestamp:
+        type: string
+        description: The timestamp
