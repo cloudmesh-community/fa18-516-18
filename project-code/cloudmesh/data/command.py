@@ -32,7 +32,7 @@ Example:
 """
 from docopt import docopt
 
-from cloudmesh.data import google_cloud_upload, google_cloud_download, listFiles
+from cloudmesh.data import google_cloud_upload, google_cloud_download, listFiles, s3_download
 
 
 def main():
@@ -59,6 +59,14 @@ def main():
         source = arguments['SOURCE']
         dest = arguments['DEST']
         print(file, source, dest)
+        if source == dest:
+            print("Target cloud needs to different than the source cloud")
+            exit
+        if source == 'aws':
+            s3_download.download_file(file)
+        if dest == 'gc':
+            google_cloud_upload.upload_blob(file)
+
 
     elif arguments['test']:
         print('Hello Test')
