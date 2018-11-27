@@ -19,35 +19,36 @@ produces:
 basePath: /cloudmesh
 
 paths:
-  /files:
+  /files/{provider}:
     get:
-      description: Returns all files
-      operationId: get_file
+      tags:
+        File
+      description: Returns all files from a specific provider
+      operationId: file.get_files
+      parameters:
+        - name: provider
+          in: path
+          type: string
+          required: True
       produces:
         - application/json
       responses:
         '200':
-          description: file info
+          description: file list
           schema:
             $ref: '#/definitions/File'
-    put:
-      summary: Create a new file
-      operationId: add_file
-      parameters:
-        - in: body
-          name: file
-          description: The new file to create
-          schema:
-            $ref: '#/definitions/File'
-      responses:
-        '201':
-          description: Created
-  '/file/{name}':
+  /file/{provider}/{filename}:
     get:
-      description: Returns a file
-      operationId: get_file_by_name
+      tags:
+        File
+      description: Returns a file for a specifc provider
+      operationId: file.get_file_by_name
       parameters:
-        - name: name
+        - name: provider
+          in: path
+          type: string
+          required: True
+        - name: filename
           in: path
           required: true
           type: string
@@ -56,6 +57,27 @@ paths:
       responses:
         '200':
           description: file info
+          schema:
+            $ref: '#/definitions/File'
+    post:
+      tags:
+        File
+      description: Upload a file to a provider
+      operationId: file.upload_file_by_name
+      parameters:
+        - name: provider
+          in: path
+          type: string
+          required: True
+        - name: filename
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: file uploaded
           schema:
             $ref: '#/definitions/File'
 definitions:

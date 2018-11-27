@@ -2,5 +2,5 @@
 cmdata test
 #cmdata data add MapReduce.docx
 #cmdata data get MapReduce.docx
-#cmdata data ls
+#cmdata data ls aws
 cmdata data move xyz aws google

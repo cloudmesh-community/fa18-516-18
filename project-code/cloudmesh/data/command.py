@@ -32,7 +32,7 @@ Example:
 """
 from docopt import docopt
 
-from cloudmesh.data import google_cloud_upload, google_cloud_download, listFiles, s3_download
+from cloudmesh.data import google_cloud_upload, google_cloud_download, listFiles, s3_download, s3List, google_cloud_list
 
 
 def main():
@@ -52,7 +52,11 @@ def main():
         print('File Downloaded')
 
     elif arguments['data'] and arguments['ls']:
-        listFiles.listFiles()
+        source = arguments['SOURCE']
+        if source == 'aws':
+            s3List.list_objects()
+        if source == 'gc':
+            google_cloud_list.list_object()
 
     elif arguments['data'] and arguments['move']:
         file = arguments['FILE']
