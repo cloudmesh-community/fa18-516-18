@@ -37,13 +37,32 @@ This project is designed to copy files from a cloud provider to another by downl
 * On top of that there is an open API built to perform these functions using REST.
 * We also have MongoDB storing the downloaded files.
 
-## Architecture
-
-
 
 ## Dataset
 
 ## Implementation
+
+This project is using following technologies for implementation:
+* Swagger 2.0 for writing API specification. This specification describes REST endpoints for managing files across providers.
+* Python flask framework which consumes the OpenAPI specification and directs the endpoints to Python functions by building a RESTful app.
+* MongoEngine as a Document-Object Mapper for working with MongoDB from Python.
+
+### AWS access from Python:
+* Install apache-libcloud by "pip install apache-libcloud"
+* Follow instructions to create an AWS account - https://github.com/cloudmesh-community/book/blob/master/chapters/iaas/aws/aws.md
+* Select S3 from Services and create a bucket
+* To access this bucket, go to IAM and create a user and then create a new Access Key in "Security Credentials"
+* While creating this key, system will promt to download pem file. Save that pem file onto your working machine.
+
+### Google Cloud Platform:
+* Install "pip install google-cloud-storage"
+* pip install google-auth google-auth-httplib2
+* pip install --upgrade google-api-python-client
+* Create an account on Google Cloud by going to https://cloud.google.com/
+* Create a new Project from the top of the page.
+* Create a new storage bucket in google cloud, select Storage -> Storage -> Browser
+* To access this bucket now, follow https://cloud.google.com/storage/docs/reference/libraries
+* This will download a JSON file in your working VM and use that file for authentication to access Google Cloud Storage.
 
 ## Benchmark
 
