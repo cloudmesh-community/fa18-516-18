@@ -28,13 +28,14 @@ We require accounts in various cloud providers(atleast 2) to test this functiona
 ## Design
 
 This project is designed to copy files from a cloud provider to another by downloading from one place and uploading to another. 
-The very first thing for that is to create accounts in AWS and Google. 
-Then use their API Keys to connect to these providers through Python code. 
-After we have a connection, we use their APIs to access the bucket by providing the name through Yaml file.
-Now since we have the bucket, we can list, download or upload the files.
-There is Command console from where we can execute these functions directly using console or script file.
-On top of that there is an open API built to perform these functions using REST.
-We also have MongoDB storing the downloaded files.
+
+* The very first thing for that is to create accounts in AWS and Google. 
+* Then use their API Keys to connect to these providers through Python code. 
+* After we have a connection, we use their APIs to access the bucket by providing the name through Yaml file.
+* Now since we have the bucket, we can list, download or upload the files.
+* There is Command console from where we can execute these functions directly using console or script file.
+* On top of that there is an open API built to perform these functions using REST.
+* We also have MongoDB storing the downloaded files.
 
 ## Architecture
 
