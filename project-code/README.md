@@ -47,6 +47,20 @@ Usecs is to do this and that an the other
     cmdata get file1.txt
 
 
+	cmdata add user gregor file file1.txt
+	cmdata file1.txt permission gregor +rw
+
+gregor:
+  name:
+  role:
+  sshpubkey: ssh sdhjsdhkjh .....
+
+
+chmod
+chgrp
+
+share files with users
+
 
 
   cmdata data add FILE
@@ -64,4 +78,36 @@ Usecs is to do this and that an the other
   cmdata set cluster=CLUSTERNAME
   cmdata set experiment=EXPERIMENT
   cmdata (-h | --help)
+
+
+file.yaml
+
+d = yaml load (file.yaml)
+
+generrate("File")
+
+   """for property in properties:
+
+   label = endpoint
+   type
+   description
+   """
+   return spec 
+
+
+"""
+class FIle(Document):
+    endpoint = StringField()
+    name = StringFIeld()
+	....
+"""
+
+eval = spec
+
+
+
+
+
+
+
 
