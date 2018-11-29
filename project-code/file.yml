@@ -1,13 +1,13 @@
 swagger: "2.0"
 info:
-  description: A file is a computer resource allowing storage of data that is
-    being processed. The interface to a file provides the mechanism to
-    appropriately locate a file in a distributed system. File
-    identification includes the name, endpoint, checksum, and
-    size. Additional parameters, such as the last access time, could
-    also be stored. The interface only describes the location of the
-    file.  The file object has name, endpoint (location), size in GB,
-    MB, Byte, checksum for integrity check, and last accessed
+  description: A file is a computer resource allowing storage of data
+    that is being processed. The interface to a file provides the
+    mechanism to appropriately locate a file in a distributed
+    system. File identification includes the name, endpoint, checksum,
+    and size. Additional parameters, such as the last access time,
+    could also be stored. The interface only describes the location of
+    the file.  The file object has name, endpoint (location), size in
+    GB, MB, Byte, checksum for integrity check, and last accessed
     timestamp.
   version: "1.0.0"
   title: file

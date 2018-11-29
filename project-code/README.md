@@ -1,8 +1,10 @@
+# TITLE
+
 This document instructs the setup for various cloud providers.
 
 Here we will be using mainly 2 Cloud Providers for this project - Amazon AWS and Google Cloud Platform
 
-### AWS Setup:
+## AWS Setup:
 
 1. Install apache-libcloud by "pip install apache-libcloud"
 2. Follow instructions to create an AWS account - https://github.com/cloudmesh-community/book/blob/master/chapters/iaas/aws/aws.md
@@ -10,7 +12,7 @@ Here we will be using mainly 2 Cloud Providers for this project - Amazon AWS and
 4. To access this bucket, go to IAM and create a user and then create a new Access Key in "Security Credentials"
 5. While creating this key, system will promt to download pem file. Save that pem file onto your working machine.
 
-### Google Cloud Platform:
+## Google Cloud Platform:
 
 1. Install "pip install google-cloud-storage"
 2. pip install google-auth google-auth-httplib2
@@ -20,3 +22,46 @@ Here we will be using mainly 2 Cloud Providers for this project - Amazon AWS and
 6. Create a new storage bucket in google cloud, select Storage -> Storage -> Browser
 7. To access this bucket now, follow https://cloud.google.com/storage/docs/reference/libraries 
 8. This will download a JSON file in your working VM and use that file for authentication to access Google Cloud Storage.
+
+## Example use from commandline
+
+Usecs is to do this and that an the other
+
+
+	cmdata set cloud=AWS
+	cmdata set dir=xyz
+	cmdata data add file1.txt  [--label file1.txt]
+	
+	cmdata set cloud=GOOGLE
+	cmdata set dir=xyz
+	cmdata data add file1.txt [--label file1.txt]
+
+	cmdata vdir create abc
+
+	cmdata vdir abc add file1.txt
+	cmdata vdir abc add file2.txt
+
+    cmdata vdir list
+
+    cmdata vdir abc get file1.txt
+    cmdata get file1.txt
+
+
+
+
+  cmdata data add FILE
+
+
+
+  cmdata data get FILE
+  cmdata data get FILE DEST_FOLDER
+  cmdata data del FILE
+  cmdata data move FILE SOURCE DEST
+  cmdata data (ls | dir)
+  cmdata set group=GROUP
+  cmdata set role=ROLE
+  cmdata set host=HOSTNAME
+  cmdata set cluster=CLUSTERNAME
+  cmdata set experiment=EXPERIMENT
+  cmdata (-h | --help)
+

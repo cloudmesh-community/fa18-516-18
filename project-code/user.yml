@@ -1,12 +1,11 @@
 swagger: "2.0"
 info:
-  description: User profiles are used to store information about users. User
-    information can be reused in other services. This is useful to
-    access files and upload or download them to cloud machines.  Profiles can
-    be added, removed and listed. A group in the profile can be used
-    to augment users to be part of one or more groups.  A number of
-    roles can specify a specific role of a user.
-
+  description: User profiles are used to store information about
+    users. User information can be reused in other services. This is
+    useful to access files and upload or download them to cloud
+    machines.  Profiles can be added, removed and listed. A group in
+    the profile can be used to augment users to be part of one or more
+    groups.  A number of roles can specify a specific role of a user.
   version: "1.0.0"
   title: file
 consumes:
