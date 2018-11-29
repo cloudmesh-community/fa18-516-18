@@ -4,7 +4,7 @@
 | rirastog@iu.edu
 | Indiana University
 | hid: fa18-516-18
-| github: [:cloud:](https://github.com/cloudmesh-community/fa18-516-18/blob/master/project-paper/report.md)
+| github: [:cloud:](https://github.com/cloudmesh-community/fa18-516-18/blob/master/project-report/report.md)
 
 ### Status: I have some specific issues which I need to get cleared from Professor related to MongoEngine and Command.py usage in OpenAPI. I am still working on these 2 things to complete my project. I will be needing some more time.
 ---
