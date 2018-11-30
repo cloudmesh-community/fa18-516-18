@@ -8,11 +8,11 @@ with open('setup.yaml', 'r') as f:
     dataMap = yaml.safe_load(f)
 
 
-def upload_file(filename):
+def upload_file(bucketname, filename):
     with open(dataMap['local_directory']+filename, 'rb') as iterator:
         obj = aws_setup.driver.upload_object_via_stream(
             iterator=iterator,
-            container=aws_setup.container,
+            container=aws_setup.driver.get_container(container_name=bucketname),
             object_name=filename)
         print('File {} uploaded to {}.'.format(
             dataMap['local_directory'] + filename,

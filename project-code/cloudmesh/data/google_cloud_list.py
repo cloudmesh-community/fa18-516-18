@@ -1,13 +1,13 @@
 from cloudmesh.data import google_cloud_setup
 
 
-def list_object():
-    bucket = google_cloud_setup.storage_client.get_bucket(google_cloud_setup.bucket_name)
+def list_object(bucketname):
+    #bucket = google_cloud_setup.storage_client.get_bucket(google_cloud_setup.bucket_name)
+    bucket = google_cloud_setup.storage_client.get_bucket(bucketname)
     blobs = bucket.list_blobs()
     keys = []
     for blob in blobs:
-        #print(blob.name)
-        keys.append("gc://"+google_cloud_setup.bucket_name+"/"+blob.name)
+        keys.append(blob.name)
 
     return keys
 

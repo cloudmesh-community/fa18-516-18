@@ -1,15 +1,13 @@
 """Data Manager.
 
 Usage:
-  cmdata test
-  cmdata data add FILE
-  cmdata data add SERVICE FILE
-  cmdata data get FILE
-  cmdata data get FILE DEST_FOLDER
+  cmdata set provider=PROVIDER
+  cmdata set dir=BUCKET
+  cmdata data add PROVIDER BUCKETNAME FILE
+  cmdata data get PROVIDER BUCKETNAME FILE
+  cmdata data ls PROVIDER BUCKETNAME
+  cmdata data copy FILE PROVIDER PROVIDER_BUCKET DEST DEST_BUCKET
   cmdata data del FILE
-  cmdata data move FILE SOURCE DEST
-  cmdata data (ls | dir)
-  cmdata set cloud=CLOUD
   cmdata set group=GROUP
   cmdata set role=ROLE
   cmdata set host=HOSTNAME
@@ -32,8 +30,9 @@ Example:
 """
 from docopt import docopt
 
-from cloudmesh.data import google_cloud_upload, google_cloud_download, listFiles, s3_download, s3List, google_cloud_list
 from cloudmesh.file import get_files
+from cloudmesh.file import upload_file_by_name
+from cloudmesh.file import get_file_by_name
 from pprint import pprint
 
 def main():
@@ -43,36 +42,35 @@ def main():
     version = 1.0
     arguments = docopt(__doc__, version=version)
     if arguments['data'] and arguments['add']:
+        provider = arguments['PROVIDER']
+        bucketname = arguments['BUCKETNAME']
         file = arguments['FILE']
-        google_cloud_upload.upload_blob(file)
-        print('Hello', file)
+        upload_file_by_name(provider, bucketname, file)
 
     elif arguments['data'] and arguments['get']:
+        provider = arguments['PROVIDER']
+        bucketname = arguments['BUCKETNAME']
         file = arguments['FILE']
-        google_cloud_download.download_blob(file)
-        print('File Downloaded')
+        get_file_by_name(provider, bucketname, file)
 
     elif arguments['data'] and arguments['ls']:
-        provider = arguments['SOURCE']
-        files = get_files(provider)
+        provider = arguments['PROVIDER']
+        bucket = arguments['BUCKETNAME']
+        files = get_files(provider, bucket)
         pprint(files)
 
-    elif arguments['data'] and arguments['move']:
+    elif arguments['data'] and arguments['copy']:
         file = arguments['FILE']
-        source = arguments['SOURCE']
+        source = arguments['PROVIDER']
+        sourcebucket = arguments['PROVIDER_BUCKET']
         dest = arguments['DEST']
-        print(file, source, dest)
+        destbucket = arguments['DEST_BUCKET']
         if source == dest:
             print("Target cloud needs to different than the source cloud")
             exit
-        if source == 'aws':
-            s3_download.download_file(file)
-        if dest == 'gc':
-            google_cloud_upload.upload_blob(file)
-
-
-    elif arguments['test']:
-        print('Hello Test')
+        else:
+            get_file_by_name(source, sourcebucket, file)
+            upload_file_by_name(dest, destbucket, file)
 
 
 if __name__ == "__main__":
