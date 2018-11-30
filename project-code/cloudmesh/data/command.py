@@ -1,6 +1,7 @@
 """Data Manager.
 
 Usage:
+  cmdata test
   cmdata set provider=PROVIDER
   cmdata set dir=BUCKET
   cmdata data add PROVIDER BUCKETNAME FILE
@@ -71,6 +72,9 @@ def main():
         else:
             get_file_by_name(source, sourcebucket, file)
             upload_file_by_name(dest, destbucket, file)
+
+    elif arguments['test']:
+        pprint("Hello!!!!")
 
 
 if __name__ == "__main__":
