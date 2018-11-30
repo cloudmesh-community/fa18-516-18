@@ -1,6 +1,12 @@
 import connexion
+import six
 import uuid
+
+#from profile_controller import *
+from swagger_server.models.profile import Profile  # noqa: E501
+from swagger_server import util
 from pymongo import MongoClient
+
 
 
 client = MongoClient()
@@ -9,12 +15,37 @@ db = client['cm']
 profiles = db['profile']
 
 
+
 def get_profile():
     """
     :return: list all the profiles as a list
     """
     # ok
     return list(profiles.find({}, {'_id': False}))
+
+
+def add_profile(profile=None):
+    # ok
+    uid = str(uuid.uuid4())
+    profile["uuid"] = uid
+    if connexion.request.is_json:
+        profile = Profile.from_dict(profile)
+
+    profiles.insert(profile.to_dict())
+    """
+    db.Profile.insert({"uuid": profile.uuid,
+                       "username": profile.username,
+                       "context": profile.context,
+                       "description": profile.description,
+                       "firstname": profile.firstname,
+                       "lastname": profile.lastname,
+                       "publickey": profile.publickey,
+                       "email": profile.email})
+    """
+    return profile
+
+
+
 
 
 def get_profile_by_uuid(uuid):
@@ -62,3 +93,5 @@ def profiles_get():  # noqa: E501
                                      element[6],
                                      element[7]))
     return listOfProfile
+
+

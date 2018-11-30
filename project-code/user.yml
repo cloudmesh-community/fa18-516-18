@@ -63,7 +63,7 @@ paths:
           schema:
             $ref: "#/definitions/Profile"
 definitions:
-  Profile:
+  User:
     type: "object"
     properties:
       uuid:

@@ -1,35 +1,47 @@
 from mongoengine import *
 import datetime
 
+from retrieve_yaml_definition_properties import generate
 
 connect('mongoengine_test', host='localhost', port=27017)
 
-
-class Post(Document):
-    title = StringField(required=True, max_length=200)
-    content = StringField(required=True)
-    author = StringField(required=True, max_length=50)
-    published = DateTimeField(default=datetime.datetime.now)
+fileproperty = generate("File")
+fileproplen = len(fileproperty)
 
 
-post_1 = Post(
-    title='Sample Post',
-    content='Some engaging content',
-    author='Scott'
+class File(Document):
+    name = StringField()
+    endpoint = StringField()
+    checksum = StringField()
+    size = StringField()
+    timestamp = DateTimeField(default=datetime.datetime.now)
+
+
+file = File(
+    name='abc.txt',
+    endpoint='AWS',
+    checksum='32',
+    size='32KB'
 )
-#post_1.save()       # This will perform an insert
-#print(post_1.title)
-#post_1.title = 'A Better Post Title'
-#post_1.save()       # This will perform an atomic edit on "title"
-#print(post_1.title)
+file.save()
 
-post_2 = Post(
-    title='Testing Mongo',
-    content='Hello Mongo DB',
-    author='Richa'
+class User(Document):
+    uuid = StringField()
+    username = StringField()
+    group = StringField()
+    role = StringField()
+    resource = StringField()
+    context = StringField()
+    description = StringField()
+    firstname = StringField()
+    lastname = StringField()
+    publickey = StringField()
+    email = StringField()
+
+user = User(
+    uuid='adsdsdsdssad',
+    username='test',
+    email='abc@gmail.com'
 )
 
-#post_2.save()
-
-for post in Post.objects:
-    print(post.title)
+user.save()
