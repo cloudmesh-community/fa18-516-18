@@ -1,6 +1,9 @@
 from cloudmesh.data import s3List
 from cloudmesh.data import google_cloud_list
-from cloudmesh.data import s3_download, google_cloud_upload, google_cloud_download, s3_upload
+from cloudmesh.data import s3_download
+from cloudmesh.data import google_cloud_upload
+from cloudmesh.data import google_cloud_download
+from cloudmesh.data import s3_upload
 
 
 def get_files(provider, bucketname):
