@@ -13,19 +13,16 @@ propertyname = []
 
 def generate(type):
     if type == "File":
-        for property in file['definitions']['File']['properties']:
-            propertyname.append(property)
+        for fileproperty in file['definitions']['File']['properties']:
+            propertyname.append(fileproperty)
 
         return propertyname
     elif type == "User":
-        for property in user['definitions']['User']['properties']:
-            propertyname.append(property)
+        for userproperty in user['definitions']['User']['properties']:
+            propertyname.append(userproperty)
 
-        return property
+        return propertyname
 
 
-property = generate("File")
-i = 0
-while i < len(property):
-    print(property[i])
-    i += 1
+#property = generate("User")
+

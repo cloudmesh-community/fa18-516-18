@@ -6,7 +6,16 @@ from retrieve_yaml_definition_properties import generate
 connect('mongoengine_test', host='localhost', port=27017)
 
 fileproperty = generate("File")
-fileproplen = len(fileproperty)
+i = 0
+while i < len(fileproperty):
+    print(fileproperty[i])
+    i += 1
+
+userproperty = generate("User")
+j = 0
+while j < len(userproperty):
+    print(userproperty[j])
+    j += 1
 
 
 class File(Document):

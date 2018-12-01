@@ -1,4 +1,6 @@
 from cloudmesh.data import s3List
+from cloudmesh.data import s3_delete
+from cloudmesh.data import google_cloud_delete
 from cloudmesh.data import google_cloud_list
 from cloudmesh.data import s3_download
 from cloudmesh.data import google_cloud_upload
@@ -25,4 +27,26 @@ def upload_file_by_name(provider, bucketname, filename):
         s3_upload.upload_file(bucketname, filename)
     elif provider == 'google':
         google_cloud_upload.upload_blob(bucketname, filename)
+
+
+def copy_file(filename, provider, provider_bucket, dest, dest_bucket):
+    if provider == dest:
+        print("Target cloud needs to different than the source cloud")
+        exit
+    else:
+        get_file_by_name(provider, provider_bucket, filename)
+        upload_file_by_name(dest, dest_bucket, filename)
+
+
+def rsync_file(filename, source, dest):
+    print('')
+
+
+def delete_file(provider, bucketname, filename):
+    if provider == 'aws':
+        s3_delete.delete_file(bucketname, filename)
+    elif provider == 'google':
+        google_cloud_delete.delete_blob(bucketname, filename)
+
+
 

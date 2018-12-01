@@ -4,11 +4,12 @@ Usage:
   cmdata test
   cmdata set provider=PROVIDER
   cmdata set dir=BUCKET
-  cmdata data add PROVIDER BUCKETNAME FILE
-  cmdata data get PROVIDER BUCKETNAME FILE
+  cmdata data add PROVIDER BUCKETNAME FILENAME
+  cmdata data get PROVIDER BUCKETNAME FILENAME
   cmdata data ls PROVIDER BUCKETNAME
-  cmdata data copy FILE PROVIDER PROVIDER_BUCKET DEST DEST_BUCKET
-  cmdata data del FILE
+  cmdata data copy FILENAME PROVIDER PROVIDER_BUCKET DEST DEST_BUCKET
+  cmdata data rsync FILENAME SOURCE DEST
+  cmdata data del PROVIDER BUCKETNAME FILENAME
   cmdata set group=GROUP
   cmdata set role=ROLE
   cmdata set host=HOSTNAME
@@ -32,6 +33,9 @@ Example:
 from docopt import docopt
 
 from cloudmesh.file import get_files
+from cloudmesh.file import rsync_file
+from cloudmesh.file import delete_file
+from cloudmesh.file import copy_file
 from cloudmesh.file import upload_file_by_name
 from cloudmesh.file import get_file_by_name
 from pprint import pprint
@@ -45,13 +49,13 @@ def main():
     if arguments['data'] and arguments['add']:
         provider = arguments['PROVIDER']
         bucketname = arguments['BUCKETNAME']
-        file = arguments['FILE']
+        file = arguments['FILENAME']
         upload_file_by_name(provider, bucketname, file)
 
     elif arguments['data'] and arguments['get']:
         provider = arguments['PROVIDER']
         bucketname = arguments['BUCKETNAME']
-        file = arguments['FILE']
+        file = arguments['FILENAME']
         get_file_by_name(provider, bucketname, file)
 
     elif arguments['data'] and arguments['ls']:
@@ -61,17 +65,24 @@ def main():
         pprint(files)
 
     elif arguments['data'] and arguments['copy']:
-        file = arguments['FILE']
+        file = arguments['FILENAME']
         source = arguments['PROVIDER']
         sourcebucket = arguments['PROVIDER_BUCKET']
         dest = arguments['DEST']
         destbucket = arguments['DEST_BUCKET']
-        if source == dest:
-            print("Target cloud needs to different than the source cloud")
-            exit
-        else:
-            get_file_by_name(source, sourcebucket, file)
-            upload_file_by_name(dest, destbucket, file)
+        copy_file(file, source, sourcebucket, dest, destbucket)
+
+    elif arguments['data'] and arguments['rsync']:
+        source = arguments['SOURCE']
+        dest = arguments['DEST']
+        filename = arguments['FILENAME']
+        rsync_file(filename, source, dest)
+
+    elif arguments['data'] and arguments['del']:
+        provider = arguments['PROVIDER']
+        bucketname = arguments['BUCKETNAME']
+        filename = arguments['FILENAME']
+        delete_file(provider, bucketname, filename)
 
     elif arguments['test']:
         pprint("Hello!!!!")

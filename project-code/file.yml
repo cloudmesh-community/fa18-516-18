@@ -30,6 +30,10 @@ paths:
           in: path
           type: string
           required: True
+        - name: bucketname
+          in: query
+          type: string
+          required: True
       produces:
         - application/json
       responses:
@@ -37,7 +41,7 @@ paths:
           description: file list
           schema:
             $ref: '#/definitions/File'
-  /file/{provider}/{filename}:
+  /file/{provider}:
     get:
       tags:
         File
@@ -48,8 +52,12 @@ paths:
           in: path
           type: string
           required: True
+        - name: bucketname
+          in: query
+          type: string
+          required: True
         - name: filename
-          in: path
+          in: query
           required: true
           type: string
       produces:
@@ -69,8 +77,12 @@ paths:
           in: path
           type: string
           required: True
+        - name: bucketname
+          in: query
+          type: string
+          required: True
         - name: filename
-          in: path
+          in: query
           required: true
           type: string
       produces:
@@ -78,6 +90,92 @@ paths:
       responses:
         '200':
           description: file uploaded
+          schema:
+            $ref: '#/definitions/File'
+  /file/copy:
+    post:
+      tags:
+        File
+      description: Copy a file to a provider
+      operationId: file.copy_file
+      parameters:
+        - name: filename
+          in: query
+          required: true
+          type: string
+        - name: provider
+          in: query
+          type: string
+          required: True
+        - name: provider_bucket
+          in: query
+          type: string
+          required: True
+        - name: dest
+          in: query
+          required: true
+          type: string
+        - name: dest_bucket
+          in: query
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: file copied
+          schema:
+            $ref: '#/definitions/File'
+  /file/rsync:
+    post:
+      tags:
+        File
+      description: Rsync a file to another directory
+      operationId: file.rsync_file
+      parameters:
+        - name: filename
+          in: query
+          required: true
+          type: string
+        - name: source
+          in: query
+          type: string
+          required: Tru
+        - name: dest
+          in: query
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: file copied
+          schema:
+            $ref: '#/definitions/File'
+  /file/delete:
+    delete:
+      tags:
+        File
+      description: Rsync a file to another directory
+      operationId: file.delete_file
+      parameters:
+        - name: provider
+          in: query
+          required: true
+          type: string
+        - name: bucketname
+          in: query
+          type: string
+          required: Tru
+        - name: filename
+          in: query
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: file copied
           schema:
             $ref: '#/definitions/File'
 definitions:
