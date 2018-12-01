@@ -21,8 +21,6 @@ basePath: /cloudmesh
 paths:
   /files/{provider}:
     get:
-      tags:
-        File
       description: Returns all files from a specific provider
       operationId: file.get_files
       parameters:
@@ -43,8 +41,6 @@ paths:
             $ref: '#/definitions/File'
   /file/{provider}:
     get:
-      tags:
-        File
       description: Returns a file for a specifc provider
       operationId: file.get_file_by_name
       parameters:
@@ -68,8 +64,6 @@ paths:
           schema:
             $ref: '#/definitions/File'
     post:
-      tags:
-        File
       description: Upload a file to a provider
       operationId: file.upload_file_by_name
       parameters:
@@ -94,8 +88,6 @@ paths:
             $ref: '#/definitions/File'
   /file/copy:
     post:
-      tags:
-        File
       description: Copy a file to a provider
       operationId: file.copy_file
       parameters:
@@ -128,8 +120,6 @@ paths:
             $ref: '#/definitions/File'
   /file/rsync:
     post:
-      tags:
-        File
       description: Rsync a file to another directory
       operationId: file.rsync_file
       parameters:
@@ -137,10 +127,10 @@ paths:
           in: query
           required: true
           type: string
-        - name: source
+        - name: provider
           in: query
           type: string
-          required: Tru
+          required: true
         - name: dest
           in: query
           required: true
@@ -149,14 +139,12 @@ paths:
         - application/json
       responses:
         '200':
-          description: file copied
+          description: file synced
           schema:
             $ref: '#/definitions/File'
   /file/delete:
     delete:
-      tags:
-        File
-      description: Rsync a file to another directory
+      description: Delete a file from a directory
       operationId: file.delete_file
       parameters:
         - name: provider
@@ -166,7 +154,7 @@ paths:
         - name: bucketname
           in: query
           type: string
-          required: Tru
+          required: true
         - name: filename
           in: query
           required: true
@@ -175,7 +163,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: file copied
+          description: file deleted
           schema:
             $ref: '#/definitions/File'
 definitions:
