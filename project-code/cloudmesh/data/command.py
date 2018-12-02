@@ -18,12 +18,16 @@ Options:
   -h --help     Show this screen.
   --version     Show version.
   --config      Location of a cmdata.yaml file
-  
+
 Description:
    put a description here
 
 Example:
-   put an example here
+   cmdata test
+   cmdata data add MapReduce.docx
+   cmdata data get MapReduce.docx
+   cmdata data ls aws
+   cmdata data move xyz aws google
 """
 from docopt import docopt
 
