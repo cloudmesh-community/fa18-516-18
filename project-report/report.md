@@ -64,6 +64,12 @@ This project is using following technologies for implementation:
 * To access this bucket now, follow https://cloud.google.com/storage/docs/reference/libraries
 * This will download a JSON file in your working VM and use that file for authentication to access Google Cloud Storage.
 
+All the dependencies can be installed easily by running requirements.txt inside project-code.
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Benchmark
 
 ## Conclusion
