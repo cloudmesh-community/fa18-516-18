@@ -1,8 +1,6 @@
 from mongoengine import *
 import datetime
 from pymongo import MongoClient
-
-from cloudmesh.Profile import Profile
 from cloudmesh.retrieve_yaml_definition_properties import generate
 from cloudmesh import get_file_size_and_checksum
 
@@ -82,6 +80,16 @@ def save_file_to_db(provider, file_path, filename, user_uuid):
     file.save()
 
 
+def update_user_for_file(user_uuid, filename):
+    myquery = {"name": filename}
+    newvalues = {"$set": {"user_uuid": user_uuid}}
+    filecollection.update_one(myquery, newvalues)
+
+    # print "customers" after the update:
+    #for x in filecollection.find():
+    #   print(x)
+
+
 def save_user_to_db(profile):
     user = User(
         uuid=profile.get_uuid(),
@@ -113,16 +121,6 @@ def get_profile_by_uuid(uuid):
         profile.append(x)
 
     return profile
-
-
-def update_user_for_file(user_uuid, filename):
-    myquery = {"name": filename}
-    newvalues = {"$set": {"user_uuid": user_uuid}}
-    filecollection.update_one(myquery, newvalues)
-
-    # print "customers" after the update:
-    #for x in filecollection.find():
-    #   print(x)
 
 
 

@@ -28,7 +28,7 @@ paths:
         "200":
           description: "profile information"
           schema:
-            $ref: "#/definitions/Profile"
+            $ref: "#/definitions/User"
     put:
       tags:
         - "profile"
@@ -40,7 +40,7 @@ paths:
           name: profile
           description: "The new profile to create"
           schema:
-            $ref: "#/definitions/Profile"
+            $ref: "#/definitions/User"
       responses:
         "201":
           description: Created
@@ -61,7 +61,7 @@ paths:
         "200":
           description: "profile information"
           schema:
-            $ref: "#/definitions/Profile"
+            $ref: "#/definitions/User"
 definitions:
   User:
     type: "object"
