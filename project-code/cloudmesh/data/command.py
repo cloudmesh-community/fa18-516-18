@@ -24,10 +24,10 @@ Description:
 
 Example:
    cmdata test
-   cmdata data add MapReduce.docx
-   cmdata data get MapReduce.docx
-   cmdata data ls aws
-   cmdata data move xyz aws google
+   cmdata data add AWS richa-516 MapReduce.docx
+   cmdata data get AWS richa-516 MapReduce.docx 1234
+   cmdata data ls AWS richa-516
+   cmdata data copy xyz.txt AWS richa-516 GOOGLE richa-google-516
 """
 from docopt import docopt
 
