@@ -117,6 +117,7 @@ This project also has RESTFUL APIs to perform all the above operations and their
 
 ![FileSwaggerAPI](images/FileSwaggerAPI.png){#fig:This figure shows the swagger ui for File.}
 
+For User APIs, please refer to screenshot below for Swagger UI for User APIs (refer to UserSwaggerAPI.png).
 
 ![UserSwaggerAPI](images/UserSwaggerAPI.png){#fig:This figure shows the swagger ui for User.}
 
