@@ -1,8 +1,7 @@
 import yaml
 import os
-from pprint import pprint
 
-prefix_path = "../"
+prefix_path = "/home/richa/fa18-516-18/project-code/"
 file_array = [f for f in os.listdir(prefix_path) if f.endswith('file.yml')]
 file_array.sort()  # file is sorted list
 
@@ -21,9 +20,7 @@ user_array = [os.path.join(prefix_path, name) for name in user_array]
 
 for filename in user_array:
     with open(filename, 'r') as f:
-        # use safe_load instead load
         user = yaml.safe_load(f)
-
 
 propertyname = []
 
@@ -39,7 +36,6 @@ def generate(type):
             propertyname.append(userproperty)
 
         return propertyname
-
 
 
 #property = generate("User")

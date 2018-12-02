@@ -56,6 +56,10 @@ paths:
           in: query
           required: true
           type: string
+        - name: user_uuid
+          in: query
+          required: true
+          type: string
       produces:
         - application/json
       responses:
@@ -186,3 +190,9 @@ definitions:
       timestamp:
         type: string
         description: The timestamp
+      last_modified:
+        type: string
+        description: The timestamp
+      user_uuid:
+        type: string
+        description: uuid of the user having permission

@@ -5,11 +5,12 @@ Usage:
   cmdata set provider=PROVIDER
   cmdata set dir=BUCKET
   cmdata data add PROVIDER BUCKETNAME FILENAME
-  cmdata data get PROVIDER BUCKETNAME FILENAME
+  cmdata data get PROVIDER BUCKETNAME FILENAME USER_UUID
   cmdata data ls PROVIDER BUCKETNAME
   cmdata data copy FILENAME PROVIDER PROVIDER_BUCKET DEST DEST_BUCKET
   cmdata data rsync FILENAME SOURCE DEST
   cmdata data del PROVIDER BUCKETNAME FILENAME
+  cmdata update user USER file FILENAME
   cmdata set group=GROUP
   cmdata set role=ROLE
   cmdata set host=HOSTNAME
@@ -38,6 +39,7 @@ from cloudmesh.file import delete_file
 from cloudmesh.file import copy_file
 from cloudmesh.file import upload_file_by_name
 from cloudmesh.file import get_file_by_name
+from cloudmesh.file import update_user_for_file
 from pprint import pprint
 
 
@@ -56,8 +58,9 @@ def main():
     elif arguments['data'] and arguments['get']:
         provider = arguments['PROVIDER']
         bucketname = arguments['BUCKETNAME']
+        user_uuid = arguments['USER_UUID']
         file = arguments['FILENAME']
-        get_file_by_name(provider, bucketname, file)
+        get_file_by_name(provider, bucketname, file, user_uuid)
 
     elif arguments['data'] and arguments['ls']:
         provider = arguments['PROVIDER']
@@ -84,6 +87,11 @@ def main():
         bucketname = arguments['BUCKETNAME']
         filename = arguments['FILENAME']
         delete_file(provider, bucketname, filename)
+
+    elif arguments['update'] and arguments['user'] and arguments['file']:
+        username = arguments['USER']
+        filename = arguments['FILENAME']
+        update_user_for_file(username, filename)
 
     elif arguments['test']:
         pprint("Hello!!!!")
