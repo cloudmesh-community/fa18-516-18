@@ -1,8 +1,6 @@
-import connexion
-import six
 import uuid
 
-#from profile_controller import *
+import connexion
 from swagger_server.models.profile import Profile  # noqa: E501
 from swagger_server import util
 from pymongo import MongoClient
@@ -66,7 +64,6 @@ def get_profile_by_uuid(uuid):
                 element['publickey'],
                 element['email'])
 
-
     return Profile(element[0],
                    element[1],
                    element[2],
@@ -76,22 +73,5 @@ def get_profile_by_uuid(uuid):
                    element[6],
                    element[7])
 
-def profiles_get():  # noqa: E501
-    """profiles_get
-    Returns a list of general description of users  # noqa: E501
-    :rtype: List[PROFILE]
-    """
-    listOfProfile = []
-    items = get_profile()
-    for element in items:
-        listOfProfile.append(Profile(element[0],
-                                     element[1],
-                                     element[2],
-                                     element[3],
-                                     element[4],
-                                     element[5],
-                                     element[6],
-                                     element[7]))
-    return listOfProfile
 
 

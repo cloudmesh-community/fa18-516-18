@@ -1,20 +1,20 @@
 from mongoengine import *
 import datetime
 
-from retrieve_yaml_definition_properties import generate
+from cloudmesh.retrieve_yaml_definition_properties import generate
 
 connect('mongoengine_test', host='localhost', port=27017)
 
 fileproperty = generate("File")
 i = 0
 while i < len(fileproperty):
-    print(fileproperty[i])
+    #print(fileproperty[i])
     i += 1
 
 userproperty = generate("User")
 j = 0
 while j < len(userproperty):
-    print(userproperty[j])
+    #print(userproperty[j])
     j += 1
 
 
@@ -25,14 +25,6 @@ class File(Document):
     size = StringField()
     timestamp = DateTimeField(default=datetime.datetime.now)
 
-
-file = File(
-    name='abc.txt',
-    endpoint='AWS',
-    checksum='32',
-    size='32KB'
-)
-file.save()
 
 class User(Document):
     uuid = StringField()
@@ -47,10 +39,17 @@ class User(Document):
     publickey = StringField()
     email = StringField()
 
-user = User(
-    uuid='adsdsdsdssad',
-    username='test',
-    email='abc@gmail.com'
-)
 
-user.save()
+def save_file_to_db(file_path, filename):
+    file = File(
+        name='MapReduce2.docx',
+        endpoint='Google',
+        checksum='32jhgsfjahfkahf',
+        size='32KB'
+    )
+
+    file.save()
+
+
+#save_file_to_db()
+
