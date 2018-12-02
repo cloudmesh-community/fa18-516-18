@@ -14,31 +14,31 @@ Keywords: Multi-cloud data service, Cloud Computing, Python, Open API, Cloud Pro
 
 ## Abstract
 
-The goal of this project is to manage files across different cloud providers. There are many cloud providers where we can store data in form of files like Amazon AWS, Microsoft Azure, Google cloud, etc. Here we are going to build an OpenAPI to manage these files, operations like copy, upload or download from one provider to another. 
+The goal of this project is to manage files across different cloud providers. There are many cloud providers where we can store data in form of files like Amazon AWS, Microsoft Azure, Google cloud, etc. Here we are going to build an OpenAPI to manage these files, operations like copy, upload, download or delete from any provider. This system is self sufficient to work as a file manager.
 
 
 ## Introduction
 
-The objective of this project is to manage data across different cloud providers. We are going to build an Open API for managing the data between all the cloud storages. We will analyse how these different clouds work and then build python methods to handle data across them. Final step will be to expose these functionalities as an API. This way we can also take advantage of cloud providers for cheaper solutions for storage by dividing the data across them.
+The objective of this project is to manage data across different cloud providers. We are going to build an RESTFUL OpenAPI for managing the data between all the cloud storages. We will analyse how these different clouds work and then build python methods to handle data across them. Final step will be to expose these functionalities as a RESTFUL API. This way we can also take advantage of cloud providers for cheaper solutions for storage by dividing the data across them. Since this project has its own MongoDB and User profiling so it can be used a file manager in itself.
 
 ## Requirements
 
-We require accounts in various cloud providers(atleast 2) to test this functionality. I have used Amazon AWS and Google cloud as two cloud providers here and use their storage functionality. 
+This project requires knowledge about Cloud Providers like AWS, Azure, Google Cloud, etc. 
+* This project is using Amazon AWS and Google cloud as two cloud providers and their storage functionality. We can expand this 
+* This also needs a database so we are using MongoDB through MongoEngine and store the files and User data in it.
+* Overall functionality can be accesses through console or RESTFUL OpenAPI which is built using Flask and Swagger.
 
 ## Design
 
-This project is designed to copy files from a cloud provider to another by downloading from one place and uploading to another. 
+This project involves developing a RESTFUL API to manage files. We can perform following operations like upload, download, list, copy, rsync and delete. We can also this project to store files in MongoDB and assign specific User Role permissions to access the files. 
 
-* The very first thing for that is to create accounts in AWS and Google. 
+* The very first thing required for that is to create accounts in AWS and Google(Since those are the two providers we are using). 
 * Then use their API Keys to connect to these providers through Python code. 
-* After we have a connection, we use their APIs to access the bucket by providing the name through Yaml file.
+* After we have a connection, we use their APIs to access the bucket by providing the name through Yaml file/API input.
 * Now since we have the bucket, we can list, download or upload the files.
 * There is Command console from where we can execute these functions directly using console or script file.
 * On top of that there is an open API built to perform these functions using REST.
 * We also have MongoDB storing the downloaded files.
-
-
-## Dataset
 
 ## Implementation
 
