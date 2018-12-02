@@ -41,6 +41,7 @@ from cloudmesh.file import upload_file_by_name
 from cloudmesh.file import get_file_by_name
 from cloudmesh.file import update_user_for_file
 from pprint import pprint
+from prettytable import PrettyTable
 
 
 def main():
@@ -66,7 +67,12 @@ def main():
         provider = arguments['PROVIDER']
         bucket = arguments['BUCKETNAME']
         files = get_files(provider, bucket)
-        pprint(files)
+        x = PrettyTable(["SNo", "Filename"])
+        i=1
+        for file in files:
+            x.add_row([i, file])
+            i = i+1
+        print(x)
 
     elif arguments['data'] and arguments['copy']:
         file = arguments['FILENAME']

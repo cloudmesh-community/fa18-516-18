@@ -11,9 +11,11 @@ from cloudmesh.data import s3_upload
 
 def get_files(provider, bucketname):
     if provider == 'aws':
-        s3List.list_objects(bucketname)
+        list = s3List.list_objects(bucketname)
     elif provider == 'google':
-        google_cloud_list.list_object(bucketname)
+        list = google_cloud_list.list_object(bucketname)
+
+    return list
 
 
 def get_file_by_name(provider, bucketname, filename, user_uuid):
