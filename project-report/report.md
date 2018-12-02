@@ -115,7 +115,10 @@ Example:
 This project also has RESTFUL APIs to perform all the above operations and their Swagger UI looks like below. For File APIs, please refer to screenshot below for Swagger UI for File APIs (refer to FileSwaggerAPI.png).
 
 
-![FileSwaggerAPI](images/FileSwaggerAPI.PNG){#fig:This figure shows the swagger ui for File.}
+![FileSwaggerAPI](images/FileSwaggerAPI.png){#fig:This figure shows the swagger ui for File.}
+
+
+![UserSwaggerAPI](images/UserSwaggerAPI.png){#fig:This figure shows the swagger ui for User.}
 
 ## Benchmark
 
