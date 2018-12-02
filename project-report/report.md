@@ -84,6 +84,14 @@ All the dependencies can be installed easily by running requirements.txt inside 
 AWS and Google Cloud specific functionality python files are under directory structure project-code/cloudmesh/data. cloudmesh-data.yaml is the yaml file holding all the information about these cloud setup. Aws_setup.py and google_cloud_setup.py uses this yaml file to authenticate the cloud providers and setup the connection to the cloud services.
 
 It also has command.py under here to run the functionality from console passing in relevant input.
+To execute commands from console using cmdata commands, we need to setup cmdata by running in project-code dir:
+```bash
+ pip install .
+```
+Now we can run all cmdata commands as given below. We can also test if cmdata is working by running a test command:
+```
+ cmdata test
+```
 
 ```
 cmdata test
@@ -112,6 +120,33 @@ Example:
    cmdata data copy xyz.txt AWS richa-516 GOOGLE richa-google-516
 ```
 
+We also have MongoDB installed to save the downloaded files into the database. We are using MongoEngine as Document-Object Mapper to add records and save the file as a FileField into DB. File is stored into MongoDB using GridFS.
+
+### MongoEngine GridFS
+GridFS is a specification for storing and retrieving files into MongoDB.
+
+Instead of storing a file in a single document, GridFS divides the file into parts, or chunks, and stores each chunk as a separate document. By default, GridFS uses a default chunk size of 255 kB; that is, GridFS divides a file into chunks of 255 kB with the exception of the last chunk. The last chunk is only as large as necessary. Similarly, files that are no larger than the chunk size only have a final chunk, using only as much space as needed plus some additional metadata.
+
+GridFS uses two collections to store files. One collection stores the file chunks, and the other stores file metadata. The section GridFS Collections describes each collection in detail.
+
+When you query GridFS for a file, the driver will reassemble the chunks as needed. You can perform range queries on files stored through GridFS. You can also access information from arbitrary sections of files, such as to “skip” to the middle of a video or audio file.
+
+GridFS is useful not only for storing files that exceed 16 MB but also for storing any files for which you want access without having to load the entire file into memory. See also When to Use GridFS.
+
+This File database table structure is read from project-code/file.yml definitions and it has a primary key as the name of the file so that we can search based on this field. This also has user_uuid field to provide specific user access to the files.
+
+```
+class File(Document):
+    name = StringField(primary_key=True)
+    endpoint = StringField()
+    checksum = StringField()
+    size = StringField()
+    timestamp = DateTimeField(default=datetime.datetime.now)
+    last_modified = DateTimeField(default=datetime.datetime.now)
+    user_uuid = StringField()
+    file_content = FileField()
+```
+
 This project also has RESTFUL APIs to perform all the above operations and their Swagger UI looks like below. For File APIs, please refer to screenshot below for Swagger UI for File APIs (refer to FileSwaggerAPI.png).
 
 
@@ -120,6 +155,9 @@ This project also has RESTFUL APIs to perform all the above operations and their
 For User APIs, please refer to screenshot below for Swagger UI for User APIs (refer to UserSwaggerAPI.png).
 
 ![UserSwaggerAPI](images/UserSwaggerAPI.png){#fig:UserSwaggerAPI}
+
+
+
 
 ## Benchmark
 
