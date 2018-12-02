@@ -19,10 +19,10 @@ def get_files(provider, bucketname):
 def get_file_by_name(provider, bucketname, filename):
     if provider == 'aws':
         file_path = s3_download.download_file(bucketname, filename)
-        mongo.save_file_to_db(file_path, filename)
+        mongo.save_file_to_db('AWS', file_path, filename)
     elif provider == 'google':
         file_path = google_cloud_download.download_blob(bucketname, filename)
-        mongo.save_file_to_db(file_path, filename)
+        mongo.save_file_to_db('GOOGLE', file_path, filename)
 
 
 def upload_file_by_name(provider, bucketname, filename):

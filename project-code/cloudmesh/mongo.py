@@ -2,6 +2,7 @@ from mongoengine import *
 import datetime
 
 from cloudmesh.retrieve_yaml_definition_properties import generate
+from cloudmesh import get_file_size_and_checksum
 
 connect('mongoengine_test', host='localhost', port=27017)
 
@@ -40,16 +41,18 @@ class User(Document):
     email = StringField()
 
 
-def save_file_to_db(file_path, filename):
+def save_file_to_db(provider, file_path, filename):
+    checksum_value = get_file_size_and_checksum.md5(file_path)
+    file_size = get_file_size_and_checksum.file_size(file_path)
     file = File(
-        name='MapReduce2.docx',
-        endpoint='Google',
-        checksum='32jhgsfjahfkahf',
-        size='32KB'
+        name=filename,
+        endpoint=provider,
+        checksum=checksum_value,
+        size=file_size
     )
 
     file.save()
 
 
-#save_file_to_db()
+#save_file_to_db('AWS', '/home/richa/Downloads/aws_lambda_10.png', 'aws_lambda_10.png')
 
