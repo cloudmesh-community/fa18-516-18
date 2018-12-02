@@ -148,6 +148,9 @@ class File(Document):
     file_content = FileField()
 ```
 
+Similarly we have a User table to store Users with their roles and group.
+
+
 This project also has RESTFUL APIs to perform all the above operations and their Swagger UI looks like below. For File APIs, please refer to screenshot below for Swagger UI for File APIs (refer to FileSwaggerAPI.png).
 
 
@@ -159,7 +162,20 @@ For User APIs, please refer to screenshot below for Swagger UI for User APIs (re
 
 
 
+## Dataset
 
+Database records for File table. This shows that file_content is stored in another table as per GridFS described above in fs.chunks and 
+fs.files:
+```
+{'_id': 'MapReduce.docx', 'endpoint': 'AWS', 'checksum': '2c716d77f0916df41147f16c05c91e10', 'size': '149.5 KB', 'timestamp': datetime.datetime(2018, 12, 2, 14, 45, 32, 564000), 'last_modified': datetime.datetime(2018, 12, 2, 14, 45, 32, 564000), 'user_uuid': 'richa', 'file_content': ObjectId('5c04608cf8724304b52eac8a')}
+{'_id': 'aws_lambda.png', 'endpoint': 'AWS', 'checksum': 'a73e3d8449ab6e7366a7b1e7f24dab35', 'size': '99.6 KB', 'timestamp': datetime.datetime(2018, 12, 2, 14, 46, 9, 241000), 'last_modified': datetime.datetime(2018, 12, 2, 14, 46, 9, 241000), 'user_uuid': 'richa', 'file_content': ObjectId('5c0460b1f87243053dd214de')}
+```
+
+Database records for User table.
+```
+{'_id': '11111', 'username': 'richa.rastogi', 'group': 'test', 'role': 'test', 'resource': 'test', 'context': 'test', 'description': 'test', 'firstname': 'richa', 'lastname': 'rastogi', 'publickey': 'test', 'email': 'rrastogi@iu.edu'}
+
+```
 ## Benchmark
 
 ## Conclusion
