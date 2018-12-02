@@ -43,9 +43,20 @@ This project involves developing a RESTFUL API to manage files. We can perform f
 ## Implementation
 
 This project is using following technologies for implementation:
+* Python 3.7.0 for python code development
 * Swagger 2.0 for writing API specification. This specification describes REST endpoints for managing files across providers.
 * Python flask framework which consumes the OpenAPI specification and directs the endpoints to Python functions by building a RESTful app.
 * MongoEngine as a Document-Object Mapper for working with MongoDB from Python.
+
+Enable a virtual environment so that all installations can be done specifically in that env.
+```
+python3 -m virtualenv /home/richa/venv/    //to install venv
+source /home/richa/venv/bin/activate		//to activate venv
+
+Now my console looks like:
+
+(venv) (3.7.0) richa@richa-VirtualBox:~$
+```
 
 ### AWS access from Python:
 * Install apache-libcloud by "pip install apache-libcloud"
@@ -64,10 +75,41 @@ This project is using following technologies for implementation:
 * To access this bucket now, follow https://cloud.google.com/storage/docs/reference/libraries
 * This will download a JSON file in your working VM and use that file for authentication to access Google Cloud Storage.
 
-All the dependencies can be installed easily by running requirements.txt inside project-code.
+All the dependencies can be installed easily by running requirements.txt inside project-code so no need to do any pip install.
 
 ```bash
-pip install -r requirements.txt
+ pip install -r requirements.txt
+```
+
+AWS and Google Cloud specific functionality python files are under directory structure project-code/cloudmesh/data. cloudmesh-data.yaml is the yaml file holding all the information about these cloud setup. Aws_setup.py and google_cloud_setup.py uses this yaml file to authenticate the cloud providers and setup the connection to the cloud services.
+
+It also has command.py under here to run the functionality from console passing in relevant input.
+
+```
+cmdata test
+  cmdata set provider=PROVIDER
+  cmdata set dir=BUCKET
+  cmdata data add PROVIDER BUCKETNAME FILENAME
+  cmdata data get PROVIDER BUCKETNAME FILENAME USER_UUID
+  cmdata data ls PROVIDER BUCKETNAME
+  cmdata data copy FILENAME PROVIDER PROVIDER_BUCKET DEST DEST_BUCKET
+  cmdata data rsync FILENAME SOURCE DEST
+  cmdata data del PROVIDER BUCKETNAME FILENAME
+  cmdata update user USER file FILENAME
+  cmdata (-h | --help)
+  cmdata --version
+Options:
+  -h --help     Show this screen.
+  --version     Show version.
+  --config      Location of a cmdata.yaml file
+Description:
+   put a description here
+Example:
+   cmdata test
+   cmdata data add AWS richa-516 MapReduce.docx
+   cmdata data get AWS richa-516 MapReduce.docx 1234
+   cmdata data ls AWS richa-516
+   cmdata data copy xyz.txt AWS richa-516 GOOGLE richa-google-516
 ```
 
 ## Benchmark
