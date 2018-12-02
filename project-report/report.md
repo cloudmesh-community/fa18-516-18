@@ -180,6 +180,16 @@ Database records for User table.
 
 ## Conclusion
 
+The main objective of this project was to gain knowledge and understanding of different cloud providers and create RESTFUL APIs using OpenAPI architecture using either flask or Eve and then to use MongoDB database to manage this data coming in from cloud providers. There were several other technologies been used to bring this whole project together.
+
+This project can be enhanced even further by including many other cloud providers like Openstack, Azure etc. and all these clouds can perform operations within themselves which can reduce costs for certain people since they will not be exceedingly dependent on only just one provider. 
+Since this project has its own access and database system enabled so this can be used as a file manager in itself.
+
 ## Acknowledgement
 
+I am very thankful to Professor Gregor von Laszewski for helping me throughout this project development as I am new to all the technologies used in this project. I also took help from nist and cm projects to understand the OpenAPI development using flask.
+
 ## References
+
+* [@cloudmesh-nist-services] https://github.com/cloudmesh-community/nist/tree/master/services
+* [@cloudmesh-cm] https://github.com/cloudmesh-community/cm/tree/master/cm4
