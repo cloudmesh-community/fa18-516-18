@@ -11,11 +11,6 @@ Usage:
   cmdata data rsync FILENAME SOURCE DEST
   cmdata data del PROVIDER BUCKETNAME FILENAME
   cmdata update user USER file FILENAME
-  cmdata set group=GROUP
-  cmdata set role=ROLE
-  cmdata set host=HOSTNAME
-  cmdata set cluster=CLUSTERNAME
-  cmdata set experiment=EXPERIMENT
   cmdata (-h | --help)
   cmdata --version
 

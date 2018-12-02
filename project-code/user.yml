@@ -7,7 +7,7 @@ info:
     the profile can be used to augment users to be part of one or more
     groups.  A number of roles can specify a specific role of a user.
   version: "1.0.0"
-  title: file
+  title: user
 consumes:
   - application/json
 produces:
