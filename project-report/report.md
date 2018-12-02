@@ -112,10 +112,10 @@ Example:
    cmdata data copy xyz.txt AWS richa-516 GOOGLE richa-google-516
 ```
 
-This project also has RESTFUL APIs to perform all the above operations and their Swagger UI looks like below. For File APIs, please refer to screenshot below for Swagger UI for File APIs (refer to file_swagger_api.png).
+This project also has RESTFUL APIs to perform all the above operations and their Swagger UI looks like below. For File APIs, please refer to screenshot below for Swagger UI for File APIs (refer to FileSwaggerAPI.png).
 
 
-![FileSwaggerAPI](images/file_swagger_api.JPG){#fig:This figure shows the swagger ui for File.}
+![FileSwaggerAPI](images/FileSwaggerAPI.PNG){#fig:This figure shows the swagger ui for File.}
 
 ## Benchmark
 
