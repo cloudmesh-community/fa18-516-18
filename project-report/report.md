@@ -94,7 +94,8 @@ Now we can run all cmdata commands as given below. We can also test if cmdata is
 ```
 
 ```
-cmdata test
+Usage:
+  cmdata test
   cmdata set provider=PROVIDER
   cmdata set dir=BUCKET
   cmdata data add PROVIDER BUCKETNAME FILENAME
