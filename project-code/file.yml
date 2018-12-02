@@ -196,3 +196,6 @@ definitions:
       user_uuid:
         type: string
         description: uuid of the user having permission
+      file_content:
+        type: string
+        description: file content

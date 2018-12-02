@@ -18,7 +18,7 @@ usercollection = db.get_collection("user")
  #   print(file)
 #To delete all records
 #myquery = {}
-#filecollection.delete_many(myquery)
+#filecollection.delete_many({})
 
 
 fileproperty = generate("File")
@@ -42,6 +42,7 @@ class File(Document):
     timestamp = DateTimeField(default=datetime.datetime.now)
     last_modified = DateTimeField(default=datetime.datetime.now)
     user_uuid = StringField()
+    file_content = FileField()
 
 
 class User(Document):
@@ -61,6 +62,8 @@ class User(Document):
 def save_file_to_db(provider, file_path, filename, user_uuid):
     checksum_value = get_file_size_and_checksum.md5(file_path)
     file_size = get_file_size_and_checksum.file_size(file_path)
+    content = open(file_path, 'rb')
+
     file = File(
         name=filename,
         endpoint=provider,
@@ -70,6 +73,10 @@ def save_file_to_db(provider, file_path, filename, user_uuid):
         last_modified=datetime.datetime.now,
         user_uuid=user_uuid
     )
+    if filename.endswith('.png'):
+        file.file_content.put(content, content_type='image/jpeg')
+    elif filename.endswith('.txt') or filename.endswith('.docx'):
+        file.file_content.put(content, content_type='text')
 
     file.save()
 
@@ -85,7 +92,7 @@ def update_user_for_file(user_uuid, filename):
 
 
 
-#save_file_to_db('AWS', '/home/richa/Downloads/aws_lambda_10.png', 'aws_lambda_10.png', 'richa')
+#save_file_to_db('AWS', '/home/richa/Documents/MapReduce.docx', 'MapReduce.docx', 'richa')
 
 #add_user_for_file('richa', 'test123')
 
