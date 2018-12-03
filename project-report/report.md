@@ -28,6 +28,12 @@ This project requires knowledge about Cloud Providers like AWS, Azure, Google Cl
 * This also needs a database so we are using MongoDB through MongoEngine and store the files and User data in it.
 * Overall functionality can be accesses through console or RESTFUL OpenAPI which is built using Flask and Swagger.
 
+## Architecture
+
+Please refer to below diagram #fig:Architecture for architecture of this project.
+
+![Architecture](images/Architecture.png){#fig:Architecture}
+
 ## Design
 
 This project involves developing a RESTFUL API to manage files. We can perform following operations like upload, download, list, copy, rsync and delete. We can also this project to store files in MongoDB and assign specific User Role permissions to access the files. 
