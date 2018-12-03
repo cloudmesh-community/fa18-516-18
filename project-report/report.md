@@ -198,7 +198,6 @@ Database records for User table.
 {'_id': '11111', 'username': 'richa.rastogi', 'group': 'test', 'role': 'test', 'resource': 'test', 'context': 'test', 'description': 'test', 'firstname': 'richa', 'lastname': 'rastogi', 'publickey': 'test', 'email': 'rrastogi@iu.edu'}
 
 ```
-## Benchmark
 
 ## Conclusion
 
