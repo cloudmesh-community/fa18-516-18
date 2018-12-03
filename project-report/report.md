@@ -162,6 +162,16 @@ This project also has RESTFUL APIs to perform all the above operations and their
 
 ![FileSwaggerAPI](images/FileSwaggerAPI.png){#fig:FileSwaggerAPI}
 
+|  API Path                  | Type     | Description                           | Input Parameters                  |
+| ----------------           | -------- | ------------------------------------- | ----------------------------------|
+| /cloudmesh/files/{provider}| GET      | Returns all files from a specific provider  | Path Param: Provider name   Query Param: Bucket Name
+| /cloudmesh/file/{provider} | GET      | Returns a file for a specifc provider       | Path Param: Provider name   Query Param: Bucket Name, filename, user_uuid
+| /cloudmesh/file/{provider} | POST    | Upload a file to a provider   | Path Param: Provider name   Query Param: Bucket Name, filename
+| /cloudmesh/file/copy       | POST    | Copy a file to a provider     | Query Param: Filename, Provider, Provider_bucket, destination, destination_bucket
+| /cloudmesh/file/rsync      | POST    | Rsync a file to another directory | Query Param: Filename, Provider, destination
+| /cloudmesh/file/delete     | DELETE  | Delete a file from a directory    | Query Param: Filename, Provider, Bucketname
+
+
 For User APIs, please refer to screenshot below for Swagger UI for User APIs (refer to UserSwaggerAPI.png).
 
 ![UserSwaggerAPI](images/UserSwaggerAPI.png){#fig:UserSwaggerAPI}
