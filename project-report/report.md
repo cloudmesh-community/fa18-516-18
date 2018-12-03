@@ -172,11 +172,17 @@ This project also has RESTFUL APIs to perform all the above operations and their
 | /cloudmesh/file/delete     | DELETE  | Delete a file from a directory    | Query Param: Filename, Provider, Bucketname
 
 
+
+
 For User APIs, please refer to screenshot below for Swagger UI for User APIs (refer to UserSwaggerAPI.png).
 
 ![UserSwaggerAPI](images/UserSwaggerAPI.png){#fig:UserSwaggerAPI}
 
-
+|  API Path                  | Type     | Description                           | Input Parameters                  |
+| ----------------           | -------- | ------------------------------------- | ----------------------------------|
+| /cloudmesh/user/profile    | GET      | Returns all profiles                  | NONE
+| /cloudmesh/user/profile    | PUT      | Create a new profile                  | Body: Profile Object
+| /cloudmesh/user/profile/{uuid} | GET  | Returns the profile of a user while looking it up with the UUID | Path Param: UUID
 
 ## Dataset
 
