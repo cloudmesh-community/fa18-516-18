@@ -11,4 +11,7 @@ def list_object(bucketname):
     return keys
 
 
+#print(list_object('richa-cloud-516'))
+
+
 
