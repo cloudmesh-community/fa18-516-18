@@ -1,10 +1,10 @@
-from cloudmesh_data.data.provider.DataProvider import DataProvider
+from cloudmesh_data.data.provider.DataProviderABC import DataProviderABC
 
 
 #
 # use simply supprocess and run scp
 #
-class DataSSHProvider(DataProvider):
+class DataSSHProvider(DataProviderABC):
     name = "ssh"
 
     def __init__(self, cloud):

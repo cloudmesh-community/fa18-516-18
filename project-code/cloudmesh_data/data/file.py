@@ -1,14 +1,30 @@
 from cloudmesh_data.database import mongo
 from cloudmesh_data.data.provider import s3
-from cloudmesh_data.deprecated import google_cloud_delete, google_cloud_download, google_cloud_list, google_cloud_upload, \
-    s3_delete, s3_download, s3_upload
+from cloudmesh_data.deprecated import \
+    google_cloud_delete, \
+    google_cloud_download, \
+    google_cloud_list, \
+    google_cloud_upload, \
+    s3_delete, \
+    s3_download, \
+    s3_upload
+from cloudmesh_data.data.Config import Config
+from cloudmesh_data.data.provider.DataProvider import DataProvider
 
+def get_files(service, bucketname):
+    config = Config()
+    kind = config['cloud']['data'][service]
 
-def get_files(provider, bucketname):
-    if provider == 'aws':
-        list = s3.list_objects(bucketname)
-    elif provider == 'google':
-        list = google_cloud_list.list_object(bucketname)
+    list = None
+
+    if kind is 'local':
+        provider = DataProvider(service)
+        list = provider.list(provider["location"])
+
+#    if provider == 'aws':
+#        list = s3.list_objects(bucketname)
+#    elif provider == 'google':
+#        list = google_cloud_list.list_object(bucketname)
 
     return list
 

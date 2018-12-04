@@ -1,11 +1,11 @@
-from cloudmesh_data.data.provider.DataProvider import DataProvider
+from cloudmesh_data.data.provider.DataProviderABC import DataProviderABC
 import os
 import shutil
 from os import listdir
 from os.path import isfile, join
 import pathlib
 
-class LocalProvider(DataProvider):
+class LocalProvider(DataProviderABC):
 
     name = "local"
 
