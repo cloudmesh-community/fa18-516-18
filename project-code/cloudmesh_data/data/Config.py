@@ -15,3 +15,5 @@ class Config(object):
         with open(filename, 'r') as f:
             self.config = yaml.safe_load(f)
 
+    def credentials(self, cloud):
+        return self.config['cloud'][cloud]['credentials']
