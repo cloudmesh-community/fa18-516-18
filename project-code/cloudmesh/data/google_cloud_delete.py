@@ -8,8 +8,4 @@ def delete_blob(bucket_name, blob_name):
     blob.delete()
     print('Blob {} deleted.'.format(blob_name))
 
-
-#delete_blob('richa-cloud-516','MapReduce.docx')
-
-
-
+# delete_blob('richa-cloud-516','MapReduce.docx')

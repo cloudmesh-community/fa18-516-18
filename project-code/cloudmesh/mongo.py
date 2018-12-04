@@ -6,37 +6,36 @@ from cloudmesh import get_file_size_and_checksum
 
 connect('mongoengine_test', host='localhost', port=27017)
 
-
 client = MongoClient('localhost', 27017)
 db = client['mongoengine_test']
 filecollection = db.get_collection("file")
 usercollection = db.get_collection("user")
 vdircollection = db.get_collection("virtualdirectory")
 
-#To print all records for file table
-#for file in vdircollection.find():
-    #print(file)
-#To delete all records
-#myquery = {}
-#usercollection.delete_many({})
+# To print all records for file table
+# for file in vdircollection.find():
+# print(file)
+# To delete all records
+# myquery = {}
+# usercollection.delete_many({})
 
 
 fileproperty = generate("File")
 i = 0
 while i < len(fileproperty):
-    #print(fileproperty[i])
+    # print(fileproperty[i])
     i += 1
 
 userproperty = generate("User")
 j = 0
 while j < len(userproperty):
-    #print(userproperty[j])
+    # print(userproperty[j])
     j += 1
 
 vdirproperty = generate("Virtualdirectory")
 i = 0
 while i < len(vdirproperty):
-    #print(vdirproperty[i])
+    # print(vdirproperty[i])
     i += 1
 
 
@@ -102,7 +101,7 @@ def update_user_for_file(user_uuid, filename):
     filecollection.update_one(myquery, newvalues)
 
     # print "customers" after the update:
-    #for x in filecollection.find():
+    # for x in filecollection.find():
     #   print(x)
 
 
@@ -165,24 +164,32 @@ def get_virtualdirectory_by_name(name):
 
     return profile
 
+# save_file_to_db('AWS', '/home/richa/Documents/MapReduce.docx', 'MapReduce.docx', 'richa')
 
-#save_file_to_db('AWS', '/home/richa/Documents/MapReduce.docx', 'MapReduce.docx', 'richa')
+# add_user_for_file('richa', 'test123')
 
-#add_user_for_file('richa', 'test123')
+# profile = get_profile_by_uuid('11111')
+# print(profile)
 
-#profile = get_profile_by_uuid('11111')
-#print(profile)
+# profile = Profile('11111',
+#                   'richa.rastogi',
+#                   'test',
+#                   'test',
+#                   'test',
+#                   'test',
+#                   'test',
+#                   'richa',
+#                   'rastogi',
+#                   'test',
+#                   'rrastogi@iu.edu')
 
-#profile = Profile('11111', 'richa.rastogi', 'test', 'test', 'test', 'test', 'test', 'richa', 'rastogi', 'test', 'rrastogi@iu.edu')
+# save_user_to_db(profile)
 
-#save_user_to_db(profile)
+# save_vdir_to_db('test', 'test description', 'local', '/home/richa/test')
 
-#save_vdir_to_db('test', 'test description', 'local', '/home/richa/test')
-
-#list = get_all_virtualdirectory()
-#for x in list:
+# list = get_all_virtualdirectory()
+# for x in list:
 #   print(x)
 
 
-#print(get_virtualdirectory_by_name('test'))
-
+# print(get_virtualdirectory_by_name('test'))

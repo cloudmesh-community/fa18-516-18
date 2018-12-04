@@ -2,10 +2,9 @@ import yaml
 import os
 import cloudmesh
 
-
 prefix_path = os.path.dirname(cloudmesh.__file__)
-#print(prefix_path)
-#prefix_path = "/home/richa/fa18-516-18/project-code/"
+# print(prefix_path)
+# prefix_path = "/home/richa/fa18-516-18/project-code/"
 file_array = [f for f in os.listdir(prefix_path) if f.endswith('file.yml')]
 file_array.sort()  # file is sorted list
 
@@ -16,7 +15,6 @@ for filename in file_array:
         # use safe_load instead load
         file = yaml.safe_load(f)
 
-
 user_array = [f for f in os.listdir(prefix_path) if f.endswith('user.yml')]
 user_array.sort()
 
@@ -25,7 +23,6 @@ user_array = [os.path.join(prefix_path, name) for name in user_array]
 for filename in user_array:
     with open(filename, 'r') as f:
         user = yaml.safe_load(f)
-
 
 vdir_array = [f for f in os.listdir(prefix_path) if f.endswith('virtualdirectory.yml')]
 vdir_array.sort()
@@ -56,8 +53,5 @@ def generate(type):
 
         return propertyname
 
-
-
-#property = generate("Virtualdirectory")
-#print(property)
-
+# property = generate("Virtualdirectory")
+# print(property)

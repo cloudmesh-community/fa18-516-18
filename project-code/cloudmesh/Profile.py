@@ -1,6 +1,17 @@
 class Profile(object):
 
-    def __init__(self, uuid, username, group, role, resource, context, description, firstname, lastname, publickey, email):
+    def __init__(self,
+                 uuid,
+                 username,
+                 group,
+                 role,
+                 resource,
+                 context,
+                 description,
+                 firstname,
+                 lastname,
+                 publickey,
+                 email):
         self._uuid = uuid
         self._username = username
         self._group = group

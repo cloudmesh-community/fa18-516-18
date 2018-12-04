@@ -66,10 +66,10 @@ def main():
         bucket = arguments['BUCKETNAME']
         files = get_files(provider, bucket)
         x = PrettyTable(["SNo", "Filename"])
-        i=1
+        i = 1
         for file in files:
             x.add_row([i, file])
-            i = i+1
+            i = i + 1
         print(x)
 
     elif arguments['data'] and arguments['copy']:

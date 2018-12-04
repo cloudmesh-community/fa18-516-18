@@ -28,7 +28,17 @@ def add_profile(username, group, role, resource, context, description, firstname
     :return:
     """
     uid = str(uuid.uuid4())
-    profile = Profile(uid, username, group, role, resource, context, description, firstname, lastname, publickey, email)
+    profile = Profile(uid,
+                      username,
+                      group,
+                      role,
+                      resource,
+                      context,
+                      description,
+                      firstname,
+                      lastname,
+                      publickey,
+                      email)
     mongo.save_user_to_db(profile)
     return profile
 

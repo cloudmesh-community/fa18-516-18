@@ -4,6 +4,12 @@ from cloudmesh.data import s3_download, google_cloud_download, s3_upload, google
 
 
 def moveFile(filepath, targetcloud):
+    """
+
+    :param filepath:
+    :param targetcloud:
+    :return:
+    """
     # match format
     if re.compile("^(s3://|gc://)").match(filepath) is None:
         print("Incorrect filename...")

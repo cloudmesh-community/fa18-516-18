@@ -1,6 +1,7 @@
 from cloudmesh.data import google_cloud_setup
 from prettytable import PrettyTable
 
+
 def list_object(bucketname):
     bucket = google_cloud_setup.storage_client.get_bucket(bucketname)
     blobs = bucket.list_blobs()
@@ -10,8 +11,4 @@ def list_object(bucketname):
 
     return keys
 
-
-#print(list_object('richa-cloud-516'))
-
-
-
+# print(list_object('richa-cloud-516'))

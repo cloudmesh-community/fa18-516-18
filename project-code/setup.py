@@ -25,7 +25,7 @@ from setuptools import setup, find_packages
 
 __version__ = '0.0.2'  # surpress the version error
 # don't use import to get the version as that causes a circular dependency
-#exec(open('cm4/__init__.py').read().strip())
+# exec(open('cm4/__init__.py').read().strip())
 
 #
 # TODO: update to the newest versions
