@@ -1,6 +1,6 @@
 import oyaml as yaml
 import os
-
+from pprint import pprint
 
 class Config(object):
 
@@ -16,14 +16,15 @@ class Config(object):
 
         with open(filename, 'r') as f:
             try:
-                self.data = yaml.safe_load(f)
+                self.cloud = yaml.safe_load(f)
+                self.data = self.cloud['cloud']['data']
             except yaml.YAMLError as exc:
                 print(exc)
                 pm = exc.problem_mark
                 print("ERROR: {name} has an issue on line {line} at position {column}".format(**pm))
 
     def credentials(self, cloud):
-        return self.data['cloud'][cloud]['credentials']
+        return self.data[cloud]['credentials']
 
     def __str__(self):
-        return yaml.dump(self.data)
+        return yaml.dump(self.cloud)

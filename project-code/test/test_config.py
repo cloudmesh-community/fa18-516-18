@@ -8,7 +8,7 @@ def test_config():
 
     print(config)
 
-    pprint(config.credentials('local'))
+    #pprint(config.credentials('local'))
 
     assert config is not None
-    assert 'cloud' in config.data
+    #assert 'cloud' in config.cloud
