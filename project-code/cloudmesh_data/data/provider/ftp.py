@@ -1,7 +1,7 @@
 from cloudmesh_data.data.provider.DataProvider import DataProvider
 
-class DataSSHProvider(DataProvider):
 
+class DataSSHProvider(DataProvider):
     name = "ftp"
 
     def __init__(self, cloud):
@@ -13,7 +13,7 @@ class DataSSHProvider(DataProvider):
     def authenticate(self, config):
         pass
 
-    def delete(self,filename):
+    def delete(self, filename):
         pass
 
     def copy(self, source, destination):
@@ -33,4 +33,3 @@ class DataSSHProvider(DataProvider):
 
     def authenticate(self, credentials):
         pass
-

@@ -9,6 +9,7 @@ import yaml
 import logging
 from cloudmesh_data.data.Config import Config
 
+
 # BUG: from pypi
 
 # Note: oauth2client is now deprecated. No more features will be added to the
@@ -37,8 +38,7 @@ class Google(object):
         # print(bucket_name)
         return self.storage_client, self.bucket_name
 
-
-    def upload_blob(self,bucketname, filename):
+    def upload_blob(self, bucketname, filename):
         """Uploads a file to the bucket."""
         bucket = self.storage_client.get_bucket(bucketname)
         blob = bucket.blob(filename)
@@ -48,8 +48,6 @@ class Google(object):
             filename))
 
     # upload_blob('MapReduce.docx')
-
-
 
     def listFiles(self):
         """
@@ -74,8 +72,6 @@ class Google(object):
 
         return keys
 
-
-
     def create_service(self, bucket_name):
         bucket = self.storage_client.create_bucket(bucket_name)
         print('Bucket {} created.'.format(bucket.name))
@@ -92,7 +88,6 @@ class Google(object):
         blob.delete()
         print('Blob {} deleted.'.format(blob_name))
 
-
     # Function to download a file from google cloud
     def download_blob(self, bucketname, filename):
         """Downloads a blob from the bucket."""
@@ -102,7 +97,6 @@ class Google(object):
         blob.download_to_filename(file_path)
         # print('Blob {} downloaded to {}.'.format(filename, self.config['local_directory']+filename))
         return file_path
-
 
     # Function to download a full dir from google cloud
     def download_dir(self, bucketname, prefix):

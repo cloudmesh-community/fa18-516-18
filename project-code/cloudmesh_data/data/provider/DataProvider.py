@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-class DataProvider(ABC):
 
+class DataProvider(ABC):
     name = "TBD"
 
     @abstractmethod
@@ -16,7 +16,7 @@ class DataProvider(ABC):
         pass
 
     @abstractmethod
-    def delete(self,filename):
+    def delete(self, filename):
         pass
 
     @abstractmethod
@@ -42,4 +42,3 @@ class DataProvider(ABC):
     @abstractmethod
     def authenticate(self, credentials):
         pass
-

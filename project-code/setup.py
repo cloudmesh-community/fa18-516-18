@@ -36,7 +36,7 @@ __version__ = '0.0.2'  # surpress the version error
 #          "other version are not supported. Your version is {}. failed.".format(sys.version_info))
 #    print(70 * "#")
 
-print ("INSTALL")
+print("INSTALL")
 
 command = None
 this_platform = platform.system().lower()
@@ -57,7 +57,6 @@ def read(fname):
 
 
 home = os.path.expanduser("~")
-
 
 # data_files= [
 #    (os.path.join(home, '.cloudmesh_data'),

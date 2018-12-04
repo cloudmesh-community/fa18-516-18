@@ -1,5 +1,5 @@
 import boto3
-from cloudmesh_data.deprecated import aws_setup
+from cloudmesh_data.data.Config import Config
 
 
 class S3(object):
@@ -9,16 +9,17 @@ class S3(object):
     #
 
     def __init__(self, cloud):
+        config = Config()
+        credentials = config.credentials(cloud)
         self.session = boto3.Session(
-            aws_access_key_id=aws_setup.dataMap['cloud'][cloud]['credentials']['S3_ACCESS_ID'],
-            aws_secret_access_key=aws_setup.dataMap['cloud'][cloud]['credentials']['S3_SECRET_KEY'])
+            aws_access_key_id=credentials['S3_ACCESS_ID'],
+            aws_secret_access_key=credentials['S3_SECRET_KEY'])
         self.s3 = self.session.resource('s3')
         #
         # BUG: where is bucketname comming from
         #
         bucketname = "ERROR"  # BUG BUG BUG
         self.bucket_name = self.s3.Bucket(bucketname)
-
 
     def delete_file(self, bucketname, filename):
         self.bucket_name.delete_key(filename)
@@ -33,18 +34,18 @@ class S3(object):
 
     def download_file(self, bucketname, filename):
         bucket_name = self.s3.Bucket(bucketname)
-        file_path = aws_setup.dataMap['local_directory'] + filename
+        file_path = self.config['local_directory'] + filename
         bucket_name.download_file(filename, file_path)
         return file_path
 
     def upload_file(self, bucketname, filename):
-        with open(aws_setup.dataMap['local_directory'] + filename, 'rb') as iterator:
-            obj = aws_setup.driver.upload_object_via_stream(
+        with open(self.config['local_directory'] + filename, 'rb') as iterator:
+            obj = self.driver.upload_object_via_stream(
                 iterator=iterator,
-                container=aws_setup.driver.get_container(container_name=bucketname),
+                container=self.driver.get_container(container_name=bucketname),
                 object_name=filename)
             print('File {} uploaded to {}.'.format(
-                aws_setup.dataMap['local_directory'] + filename,
+                self.config['local_directory'] + filename,
                 filename))
 
 #

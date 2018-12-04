@@ -1,10 +1,10 @@
 from cloudmesh_data.data.provider.DataProvider import DataProvider
 
+
 #
 # use simply supprocess and run scp
 #
 class DataRsyncProvider(DataProvider):
-
     name = "rsync"
 
     def __init__(self, cloud):
@@ -16,7 +16,7 @@ class DataRsyncProvider(DataProvider):
     def authenticate(self, config):
         pass
 
-    def delete(self,filename):
+    def delete(self, filename):
         pass
 
     def copy(self, source, destination):
@@ -36,4 +36,3 @@ class DataRsyncProvider(DataProvider):
 
     def authenticate(self, credentials):
         pass
-
