@@ -1,6 +1,6 @@
 import os
 import cloudmesh_data
-from cloudmesh_data import mongo
+from cloudmesh_data.database import mongo
 
 
 def add_virtualdirectory(virtualdirname):

@@ -31,13 +31,13 @@ Example:
 """
 from docopt import docopt
 
-from cloudmesh_data.file import get_files
-from cloudmesh_data.file import rsync_file
-from cloudmesh_data.file import delete_file
-from cloudmesh_data.file import copy_file
-from cloudmesh_data.file import upload_file_by_name
-from cloudmesh_data.file import get_file_by_name
-from cloudmesh_data.file import update_user_for_file
+from cloudmesh_data.data.file import get_files
+from cloudmesh_data.data.file import rsync_file
+from cloudmesh_data.data.file import delete_file
+from cloudmesh_data.data.file import copy_file
+from cloudmesh_data.data.file import upload_file_by_name
+from cloudmesh_data.data.file import get_file_by_name
+from cloudmesh_data.data.file import update_user_for_file
 from pprint import pprint
 from prettytable import PrettyTable
 

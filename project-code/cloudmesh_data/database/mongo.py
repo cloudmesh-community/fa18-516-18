@@ -1,7 +1,7 @@
 from mongoengine import *
 import datetime
 from pymongo import MongoClient
-from cloudmesh_data.retrieve_yaml_definition_properties import generate
+from cloudmesh_data.data.util.retrieve_yaml_definition_properties import generate
 from cloudmesh_data.data.util import get_file_size_and_checksum
 
 #

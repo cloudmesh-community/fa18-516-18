@@ -1,7 +1,7 @@
 import uuid
 
-from cloudmesh_data import Profile
-from cloudmesh_data import mongo
+from cloudmesh_data.data import Profile
+from cloudmesh_data.database import mongo
 
 
 def get_profile():
