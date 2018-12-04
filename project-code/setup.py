@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # ----------------------------------------------------------------------- #
 # Copyright 2008-2010, Gregor von Laszewski                               #
-# Copyright 2010-2013, cloudmesh.org                                      #
+# Copyright 2010-2013, cloudmesh_data.org                                      #
 #                                                                         #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may #
 # not use this file except in compliance with the License. You may obtain #
@@ -36,6 +36,8 @@ __version__ = '0.0.2'  # surpress the version error
 #          "other version are not supported. Your version is {}. failed.".format(sys.version_info))
 #    print(70 * "#")
 
+print ("INSTALL")
+
 command = None
 this_platform = platform.system().lower()
 if this_platform in ['darwin']:
@@ -56,8 +58,9 @@ def read(fname):
 
 home = os.path.expanduser("~")
 
+
 # data_files= [
-#    (os.path.join(home, '.cloudmesh'),
+#    (os.path.join(home, '.cloudmesh_data'),
 #    [os.path.join(d, f) for f in files]) for d, folders, files in os.walk(
 #                os.path.join('cloudmesh_cm4', 'etc'))]
 #
@@ -75,9 +78,9 @@ setup(
                 "client and shell",
     long_description=read('README.md'),
     license="Apache License, Version 2.0",
-    author="Gregor von Laszewski, cloudmesh.org",
+    author="Gregor von Laszewski, cloudmesh_data.org",
     author_email="laszewski@gmail.com",
-    url="https://github.com/cloudmesh-community/cm",
+    url="https://github.com/cloudmesh_data-community/cm",
     classifiers=[
         "Intended Audience :: Developers",
         "Intended Audience :: Education",
@@ -100,12 +103,12 @@ setup(
     include_package_data=True,
     # data_files= data_files,
     # package_data={
-    #     'cloudmesh.etc': ['*.yaml', '*.py'],
+    #     'cloudmesh_data.etc': ['*.yaml', '*.py'],
     # },
 
     entry_points={
         'console_scripts': [
-            'cmdata = cloudmesh.data.command:main',
+            'cmdata = cloudmesh_data.data.command:main',
         ],
     },
     # tests_require=['tox'],
