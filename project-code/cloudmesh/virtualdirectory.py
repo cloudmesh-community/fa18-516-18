@@ -27,6 +27,4 @@ def get_virtualdirectory():
 def get_virtualdirectory_by_name(name):
     return mongo.get_virtualdirectory_by_name(name)
 
-
-
-#print(add_virtualdirectory('testDir'))
+# print(add_virtualdirectory('testDir'))

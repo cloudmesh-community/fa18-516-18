@@ -4,7 +4,7 @@ from cloudmesh.data import s3_download, google_cloud_download, s3_upload, google
 
 
 def moveFile(filepath, targetcloud):
-    #match format
+    # match format
     if re.compile("^(s3://|gc://)").match(filepath) is None:
         print("Incorrect filename...")
         return
@@ -12,7 +12,7 @@ def moveFile(filepath, targetcloud):
     sourcecloud = filepathparsed.group(1)
     bucket = filepathparsed.group(2)
     filename = filepathparsed.group(3)
-    print("sourceCloud="+sourcecloud+"\nbucket="+bucket+"\nfilename="+filename)
+    print("sourceCloud=" + sourcecloud + "\nbucket=" + bucket + "\nfilename=" + filename)
     if sourcecloud == targetcloud:
         print("Target cloud needs to different than the source cloud")
         exit

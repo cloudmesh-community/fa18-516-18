@@ -28,9 +28,7 @@ def md5(filename):
             hash_md5.update(chunk)
     return hash_md5.hexdigest()
 
-
 # Lets check the file size of MS Paint exe
 # or you can use any file path
-#file_path = "/home/richa/Documents/project_cloud_files/MapReduce.docx"
-#print(md5(file_path))
-
+# file_path = "/home/richa/Documents/project_cloud_files/MapReduce.docx"
+# print(md5(file_path))
