@@ -9,6 +9,10 @@ class DataProvider(ABC):
         pass
 
     @abstractmethod
+    def authenticate(self, config):
+        pass
+
+    @abstractmethod
     def delete(self,filename):
         pass
 

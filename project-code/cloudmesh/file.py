@@ -1,17 +1,12 @@
 from cloudmesh import mongo
-from cloudmesh.data import s3List
-from cloudmesh.data import s3_delete
-from cloudmesh.data import google_cloud_delete
-from cloudmesh.data import google_cloud_list
-from cloudmesh.data import s3_download
-from cloudmesh.data import google_cloud_upload
-from cloudmesh.data import google_cloud_download
-from cloudmesh.data import s3_upload
+from cloudmesh.data import s3
+from cloudmesh.deprecated import google_cloud_delete, google_cloud_download, google_cloud_list, google_cloud_upload, \
+    s3_delete, s3_download, s3_upload
 
 
 def get_files(provider, bucketname):
     if provider == 'aws':
-        list = s3List.list_objects(bucketname)
+        list = s3.list_objects(bucketname)
     elif provider == 'google':
         list = google_cloud_list.list_object(bucketname)
 

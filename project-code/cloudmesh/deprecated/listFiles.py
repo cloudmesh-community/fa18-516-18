@@ -1,4 +1,4 @@
-from cloudmesh.data import google_cloud_list, s3List
+from cloudmesh.deprecated import google_cloud_list
 
 
 def listFiles():

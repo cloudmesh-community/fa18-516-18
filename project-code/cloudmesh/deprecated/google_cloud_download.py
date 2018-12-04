@@ -1,4 +1,4 @@
-from cloudmesh.data import google_cloud_setup
+from cloudmesh.deprecated import google_cloud_setup
 import os
 
 

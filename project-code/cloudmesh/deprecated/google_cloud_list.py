@@ -1,5 +1,4 @@
-from cloudmesh.data import google_cloud_setup
-from prettytable import PrettyTable
+from cloudmesh.deprecated import google_cloud_setup
 
 
 def list_object(bucketname):
