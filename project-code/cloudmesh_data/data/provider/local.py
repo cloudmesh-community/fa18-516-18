@@ -3,7 +3,7 @@ import os
 import shutil
 from os import listdir
 from os.path import isfile, join
-
+import pathlib
 
 class LocalProvider(DataProvider):
 
@@ -22,7 +22,9 @@ class LocalProvider(DataProvider):
         os.remove(filename)
 
     def copy(self, source, destination):
-        shutil.copyfile(source, destination)
+        s = os.path.expanduser(source)
+        d = os.path.expanduser(destination)
+        shutil.copyfile(s, d)
 
     def move(self, source, destination):
         os.rename(source, destination)
@@ -37,6 +39,21 @@ class LocalProvider(DataProvider):
         files = [f for f in listdir(path) if isfile(join(path, f))]
         return files
 
-    def authenticate(self, credentials):
-        pass
+    def create(self, path, dir=True):
+        _path = os.path.expanduser(path)
+        if dir:
+            pathlib.Path(_path).mkdir(parents=True, exist_ok=True)
+        else:
+            try:
+                file = open(_path, 'r')
+                file.close()
+            except FileNotFoundError:
+                file = open(_path, 'w')
+                file.close()
+
+        return _path
+
+    def exists(self, path):
+        _path = os.path.expanduser(path)
+        return os.path.exists(_path)
 

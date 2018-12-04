@@ -40,5 +40,9 @@ class DataProvider(ABC):
         pass
 
     @abstractmethod
+    def create(self, dir):
+        pass
+
+    @abstractmethod
     def authenticate(self, credentials):
         pass
