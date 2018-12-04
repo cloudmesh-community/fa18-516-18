@@ -11,10 +11,11 @@ client = MongoClient('localhost', 27017)
 db = client['mongoengine_test']
 filecollection = db.get_collection("file")
 usercollection = db.get_collection("user")
+vdircollection = db.get_collection("virtualdirectory")
 
 #To print all records for file table
-#for file in filecollection.find():
- #   print(file)
+#for file in vdircollection.find():
+    #print(file)
 #To delete all records
 #myquery = {}
 #usercollection.delete_many({})
@@ -31,6 +32,12 @@ j = 0
 while j < len(userproperty):
     #print(userproperty[j])
     j += 1
+
+vdirproperty = generate("Virtualdirectory")
+i = 0
+while i < len(vdirproperty):
+    #print(vdirproperty[i])
+    i += 1
 
 
 class File(Document):
@@ -56,6 +63,15 @@ class User(Document):
     lastname = StringField()
     publickey = StringField()
     email = StringField()
+
+
+class Virtualdirectory(Document):
+    name = StringField(primary_key=True)
+    description = StringField()
+    host = StringField()
+    location = StringField()
+    protocol = StringField()
+    credential = StringField()
 
 
 def save_file_to_db(provider, file_path, filename, user_uuid):
@@ -123,6 +139,32 @@ def get_profile_by_uuid(uuid):
     return profile
 
 
+def save_vdir_to_db(name, description, host, location):
+    vdir = Virtualdirectory(
+        name=name,
+        description=description,
+        host=host,
+        location=location,
+        protocol='',
+        credential=''
+    )
+    vdir.save()
+
+
+def get_all_virtualdirectory():
+    return list(vdircollection.find({}, {'_id': False}))
+
+
+def get_virtualdirectory_by_name(name):
+    myquery = {"_id": name}
+
+    vdir = vdircollection.find(myquery)
+    profile = []
+    for x in vdir:
+        profile.append(x)
+
+    return profile
+
 
 #save_file_to_db('AWS', '/home/richa/Documents/MapReduce.docx', 'MapReduce.docx', 'richa')
 
@@ -134,4 +176,13 @@ def get_profile_by_uuid(uuid):
 #profile = Profile('11111', 'richa.rastogi', 'test', 'test', 'test', 'test', 'test', 'richa', 'rastogi', 'test', 'rrastogi@iu.edu')
 
 #save_user_to_db(profile)
+
+#save_vdir_to_db('test', 'test description', 'local', '/home/richa/test')
+
+#list = get_all_virtualdirectory()
+#for x in list:
+#   print(x)
+
+
+#print(get_virtualdirectory_by_name('test'))
 
