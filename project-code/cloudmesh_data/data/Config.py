@@ -5,16 +5,23 @@ import os
 class Config(object):
 
     def __init__(self, filename=None):
-        if filename is None:
-            filename = os.path.expanduser("~/.cloudmesh_data/cloudmesh_data-data.yaml")
 
         #
-        # BUG: add if there is a cloudmesh_data-data.yaml in the current dir use that
+        # BUG: add if there is a cloudmesh-data.yaml in the current dir use that
         #
+
+        if filename is None:
+            filename = os.path.expanduser("~/.cloudmesh/cloudmesh-data.yaml")
+
 
         with open(filename, 'r') as f:
-            self.config = yaml.safe_load(f)
+            try:
+                self.data = yaml.safe_load(f)
+            except yaml.YAMLError as exc:
+                print(exc)
+                pm = exc.problem_mark
+                print("ERROR: {name} has an issue on line {line} at position {column}".format(**pm))
 
     def credentials(self, cloud):
-        return self.config['cloud'][cloud]['credentials']
+        return self.data['cloud'][cloud]['credentials']
 
