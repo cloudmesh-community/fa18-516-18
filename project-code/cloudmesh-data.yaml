@@ -1,4 +1,5 @@
 cloud:
+  data:
     azure:
       kind:                               azure
       credentials:
@@ -9,7 +10,7 @@ cloud:
       credentials:
         S3_ACCESS_ID:                     'XXXXXXXXXXX'
         S3_SECRET_KEY:                    'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-      bucket_name:                        'richa-516'
+      bucket_name:                        '516'
     openstack:
       kind:                               openstack
       credentials:
@@ -23,5 +24,15 @@ cloud:
     local:
       kind:                               local
       bucket_name:                        '~/.cloudmesh/local'
+      credentials:
+        username:                         TBD
+    local_a:
+      kind:                               local
+      bucket_name:                        '~/.cloudmesh/local_a'
+      credentials:
+        username:                         TBD
+    local_b:
+      kind:                               local
+      bucket_name:                        '~/.cloudmesh/local_b'
       credentials:
         username:                         TBD

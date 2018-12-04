@@ -25,3 +25,5 @@ class Config(object):
     def credentials(self, cloud):
         return self.data['cloud'][cloud]['credentials']
 
+    def __str__(self):
+        return yaml.dump(self.data)

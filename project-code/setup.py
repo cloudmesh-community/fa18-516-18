@@ -23,9 +23,9 @@ import sys
 
 from setuptools import setup, find_packages
 
-__version__ = '0.0.2'  # surpress the version error
+__version__ = '0.1.0'  # surpress the version error
 # don't use import to get the version as that causes a circular dependency
-# exec(open('cm4/__init__.py').read().strip())
+#exec(open('cloudmesh_data/__init__.py').read().strip())
 
 #
 # TODO: update to the newest versions
@@ -35,8 +35,6 @@ __version__ = '0.0.2'  # surpress the version error
 #    print("WARNING: upgrade to a python greater than 3.7.0 "
 #          "other version are not supported. Your version is {}. failed.".format(sys.version_info))
 #    print(70 * "#")
-
-print("INSTALL")
 
 command = None
 this_platform = platform.system().lower()
