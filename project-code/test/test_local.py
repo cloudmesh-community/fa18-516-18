@@ -19,5 +19,9 @@ def test_local_list():
 
     source = config.data['local_a']
     pprint(source)
-    source = config.data['local_b']
-    pprint(source)
+    destination = config.data['local_b']
+    pprint(destination)
+
+    pprint(source["bucket_name"])
+    pprint(destination["bucket_name"])
+
