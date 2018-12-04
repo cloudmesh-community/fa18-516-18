@@ -1,8 +1,16 @@
-# TITLE
+# Openapi Virtual Directory
 
 This document instructs the setup for various cloud providers.
 
 Here we will be using mainly 2 Cloud Providers for this project - Amazon AWS and Google Cloud Platform
+
+
+Gregor's setup
+
+```bash
+$ pip install -r requirements.txt
+$ python setup.py install .
+```
 
 ## AWS Setup:
 
