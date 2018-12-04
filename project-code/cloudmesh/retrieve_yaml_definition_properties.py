@@ -1,7 +1,11 @@
 import yaml
 import os
+import cloudmesh
 
-prefix_path = "/home/richa/fa18-516-18/project-code/"
+
+prefix_path = os.path.dirname(cloudmesh.__file__)
+print(prefix_path)
+#prefix_path = "/home/richa/fa18-516-18/project-code/"
 file_array = [f for f in os.listdir(prefix_path) if f.endswith('file.yml')]
 file_array.sort()  # file is sorted list
 
@@ -38,6 +42,6 @@ def generate(type):
         return propertyname
 
 
-#property = generate("User")
-#print(property)
+property = generate("User")
+print(property)
 
