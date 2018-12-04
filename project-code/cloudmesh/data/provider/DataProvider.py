@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 class DataProvider(ABC):
 
-    provider = "TBD"
+    name = "TBD"
 
     @abstractmethod
     def __init__(self, cloud):

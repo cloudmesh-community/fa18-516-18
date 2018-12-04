@@ -1,6 +1,6 @@
 import boto3
 
-from cloudmesh.data import aws_setup
+from cloudmesh.deprecated import aws_setup
 
 
 def delete_file(bucketname, filename):

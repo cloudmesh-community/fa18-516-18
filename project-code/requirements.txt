@@ -6,6 +6,7 @@ termcolor
 python-hostlist
 apache-libcloud
 pyyaml
+oyaml
 coverage
 google-cloud-storage
 google-auth

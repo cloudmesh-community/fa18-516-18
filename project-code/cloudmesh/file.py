@@ -1,5 +1,5 @@
 from cloudmesh import mongo
-from cloudmesh.data import s3
+from cloudmesh.data.provider import s3
 from cloudmesh.deprecated import google_cloud_delete, google_cloud_download, google_cloud_list, google_cloud_upload, \
     s3_delete, s3_download, s3_upload
 
