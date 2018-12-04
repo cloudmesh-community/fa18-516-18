@@ -17,3 +17,4 @@ class Config(object):
 
     def credentials(self, cloud):
         return self.config['cloud'][cloud]['credentials']
+
