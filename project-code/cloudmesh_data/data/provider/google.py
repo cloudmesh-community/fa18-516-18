@@ -3,6 +3,7 @@ import os
 import logging
 from cloudmesh_data.data.provider.DataProviderABC import DataProviderABC
 from cloudmesh_data.data.Config import Config
+from google.cloud import bigquery
 
 # BUG: from pypi
 
@@ -23,24 +24,18 @@ class Google(DataProviderABC):
         else:
             self.cloud = cloud
 
+        config = Config()
+        self.gcs_client = storage.Client.from_service_account_json(config.credentials('google_cloud')['GOOGLE_CLOUD_CREDENTIALS_JSON'])
         localprovider = LocalProvider()
         self.dir = LocalProvider.create(localprovider, str(os.getcwd()), self.cloud+'dump')
 
     def authenticate(self):
         logging.basicConfig(filename='debug.log', level=logging.DEBUG)
-
-        config = Config()
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = config.credentials('google_cloud')['GOOGLE_CLOUD_CREDENTIALS_JSON']
-
-        #
-        # Why setting the os environment we have this in config
-        #
-        self.storage_client = storage.Client()
-        return self.storage_client
+        return self.gcs_client
 
     def upload(self, bucketname, filename):
         """Uploads a file to the bucket."""
-        bucket = self.storage_client.get_bucket(bucketname)
+        bucket = self.gcs_client.get_bucket(bucketname)
         blob = bucket.blob(filename)
         blob.upload_from_filename(self.config['local_directory'] + filename)
         print('File {} uploaded to {}.'.format(
@@ -48,7 +43,7 @@ class Google(DataProviderABC):
             filename))
 
     def list(self, bucketname):
-        bucket = self.storage_client.get_bucket(bucketname)
+        bucket = self.gcs_client.get_bucket(bucketname)
         blobs = bucket.list_blobs()
         keys = []
         for blob in blobs:
@@ -58,12 +53,12 @@ class Google(DataProviderABC):
 
     def create(self, bucket_name):
         """Creates a new bucket."""
-        bucket = self.storage_client.create_bucket(bucket_name)
+        bucket = self.gcs_client.get_bucket(bucket_name)
         print('Bucket {} created'.format(bucket.name))
 
     def delete(self, bucket_name, blob_name):
         """Deletes a blob from the bucket."""
-        bucket = self.storage_client.get_bucket(bucket_name)
+        bucket = self.gcs_client.get_bucket(bucket_name)
         blob = bucket.blob(blob_name)
         blob.delete()
         print('Blob {} deleted.'.format(blob_name))
@@ -71,7 +66,7 @@ class Google(DataProviderABC):
     # Function to download a file from google cloud
     def download(self, bucketname, filename):
         """Downloads a blob from the bucket."""
-        bucket = self.storage_client.get_bucket(bucketname)
+        bucket = self.gcs_client.get_bucket(bucketname)
         blob = bucket.blob(filename)
         file_path = self.dir + filename
         blob.download_to_filename(file_path)
