@@ -1,6 +1,3 @@
-#from oauth2client.service_account import ServiceAccountCredentials
-from httplib2 import Http
-from googleapiclient import discovery
 from google.cloud import storage
 import os
 import logging
@@ -60,13 +57,9 @@ class Google(DataProviderABC):
         return keys
 
     def create(self, bucket_name):
+        """Creates a new bucket."""
         bucket = self.storage_client.create_bucket(bucket_name)
-        print('Bucket {} created.'.format(bucket.name))
-        scopes = ['https://www.googleapis.com/auth/devstorage.read_write']
-        #credentials = ServiceAccountCredentials.from_json_keyfile_name(
-         #   self.config['cloud']['google_cloud']['credentials']['GOOGLE_CLOUD_CREDENTIALS_JSON'], scopes)
-        #http_auth = credentials.authorize(Http())
-        #return discovery.build('storage', 'v1', http=http_auth)
+        print('Bucket {} created'.format(bucket.name))
 
     def delete(self, bucket_name, blob_name):
         """Deletes a blob from the bucket."""
@@ -84,20 +77,6 @@ class Google(DataProviderABC):
         blob.download_to_filename(file_path)
         # print('Blob {} downloaded to {}.'.format(filename, self.config['local_directory']+filename))
         return file_path
-
-    # Function to download a full dir from google cloud
-    def download_dir(self, bucketname, prefix, filename):
-        if prefix != '' and filename == '':
-            os.mkdir(self.config['local_directory'] + prefix)
-            dl_dir = self.config['local_directory'] + prefix
-
-        bucket = self.storage_client.get_bucket(bucketname)
-        blobs = bucket.list_blobs(prefix=prefix)  # Get list of files
-        for blob in blobs:
-            filename = blob.name.replace('/', '_')
-            print(filename)
-            blob.download_to_filename(dl_dir + filename)  # Download
-        return dl_dir
 
     def copy(self):
         pass
