@@ -1,7 +1,6 @@
 """Data Manager.
 
 Usage:
-  cmdata test
   cmdata set provider=PROVIDER
   cmdata set dir=BUCKET
   cmdata data add PROVIDER BUCKETNAME FILENAME
@@ -31,13 +30,13 @@ Example:
 """
 from docopt import docopt
 
-from cloudmesh_data.data.file import get_files
-from cloudmesh_data.data.file import rsync_file
-from cloudmesh_data.data.file import delete_file
-from cloudmesh_data.data.file import copy_file
-from cloudmesh_data.data.file import upload_file_by_name
-from cloudmesh_data.data.file import get_file_by_name
-from cloudmesh_data.data.file import update_user_for_file
+# from cloudmesh_data.data.file import get_files
+# from cloudmesh_data.data.file import rsync_file
+# from cloudmesh_data.data.file import delete_file
+# from cloudmesh_data.data.file import copy_file
+# from cloudmesh_data.data.file import upload_file_by_name
+# from cloudmesh_data.data.file import get_file_by_name
+# from cloudmesh_data.data.file import update_user_for_file
 from pprint import pprint
 from prettytable import PrettyTable
 
@@ -52,25 +51,25 @@ def main():
         provider = arguments['PROVIDER']
         bucketname = arguments['BUCKETNAME']
         file = arguments['FILENAME']
-        upload_file_by_name(provider, bucketname, file)
+        # upload_file_by_name(provider, bucketname, file)
 
     elif arguments['data'] and arguments['get']:
         provider = arguments['PROVIDER']
         bucketname = arguments['BUCKETNAME']
         user_uuid = arguments['USER_UUID']
         file = arguments['FILENAME']
-        get_file_by_name(provider, bucketname, file, user_uuid)
+        # get_file_by_name(provider, bucketname, file, user_uuid)
 
     elif arguments['data'] and arguments['ls']:
         provider = arguments['PROVIDER']
         bucket = arguments['BUCKETNAME']
-        files = get_files(provider, bucket)
-        x = PrettyTable(["SNo", "Filename"])
-        i = 1
-        for file in files:
-            x.add_row([i, file])
-            i = i + 1
-        print(x)
+        # files = get_files(provider, bucket)
+        # x = PrettyTable(["SNo", "Filename"])
+        # i = 1
+        # for file in files:
+        #    x.add_row([i, file])
+        #    i = i + 1
+        #print(x)
 
     elif arguments['data'] and arguments['copy']:
         file = arguments['FILENAME']
@@ -78,27 +77,24 @@ def main():
         sourcebucket = arguments['PROVIDER_BUCKET']
         dest = arguments['DEST']
         destbucket = arguments['DEST_BUCKET']
-        copy_file(file, source, sourcebucket, dest, destbucket)
+        # copy_file(file, source, sourcebucket, dest, destbucket)
 
     elif arguments['data'] and arguments['rsync']:
         source = arguments['SOURCE']
         dest = arguments['DEST']
         filename = arguments['FILENAME']
-        rsync_file(filename, source, dest)
+        # rsync_file(filename, source, dest)
 
     elif arguments['data'] and arguments['del']:
         provider = arguments['PROVIDER']
         bucketname = arguments['BUCKETNAME']
         filename = arguments['FILENAME']
-        delete_file(provider, bucketname, filename)
+        # delete_file(provider, bucketname, filename)
 
     elif arguments['update'] and arguments['user'] and arguments['file']:
         username = arguments['USER']
         filename = arguments['FILENAME']
-        update_user_for_file(username, filename)
-
-    elif arguments['test']:
-        pprint("Hello!!!!")
+        # update_user_for_file(username, filename)
 
 
 if __name__ == "__main__":
