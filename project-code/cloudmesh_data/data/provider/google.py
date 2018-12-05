@@ -3,16 +3,6 @@ import os
 import logging
 from cloudmesh_data.data.provider.DataProviderABC import DataProviderABC
 from cloudmesh_data.data.Config import Config
-from google.cloud import bigquery
-
-# BUG: from pypi
-
-# Note: oauth2client is now deprecated. No more features will be added to the
-# libraries and the core team is turning down support. We recommend you use google-auth and oauthlib.
-
-#
-# this needs review due to bucket name also being returned.
-#
 from cloudmesh_data.data.provider.local import LocalProvider
 
 

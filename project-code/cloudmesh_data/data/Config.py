@@ -3,6 +3,7 @@ import os
 from pprint import pprint
 from prettytable  import PrettyTable
 
+
 class Config(object):
 
     def __init__(self, filename=None):

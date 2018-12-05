@@ -1,36 +1,18 @@
+from cloudmesh_data.data.Provider import Provider
 from cloudmesh_data.database import mongo
 from deprecated import google_cloud_upload, google_cloud_delete, s3_delete, s3_download, s3_upload, \
     google_cloud_download
 from cloudmesh_data.data.Config import Config
-from cloudmesh_data.data.provider.DataProvider import DataProvider
 
 
-def get_provider(kind):
-    if kind == 'local':
-        provider = DataProvider(kind)
-    elif kind == 'azure':
-        pass
-    elif kind == 'azure':
-        pass
-    return provider
-
-
-def get_files(service, bucketname):
+def get_files(service):
     config = Config()
     kind = config['cloud']['data'][service]
+    provider = Provider()
+    provider = provider.get_provider(kind)
+    files_list = provider.list(provider["location"])
 
-    provider =  get_provider(kind)
-
-    list = None
-    list = provider.list(provider["location"])
-
-
-    #    if provider == 'aws':
-    #        list = s3.list_objects(bucketname)
-    #    elif provider == 'google':
-    #        list = google_cloud_list.list_object(bucketname)
-
-    return list
+    return files_list
 
 
 def get_file_by_name(provider, bucketname, filename, user_uuid):
