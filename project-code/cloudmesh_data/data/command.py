@@ -1,6 +1,7 @@
 """Data Manager.
 
 Usage:
+  cmdata data list [--format=FORMAT]
   cmdata set provider=PROVIDER
   cmdata set dir=BUCKET
   cmdata data add PROVIDER BUCKETNAME FILENAME
@@ -39,6 +40,7 @@ from docopt import docopt
 # from cloudmesh_data.data.file import update_user_for_file
 from pprint import pprint
 from prettytable import PrettyTable
+from cloudmesh_data.data.Config import Config
 
 
 def main():
@@ -52,6 +54,17 @@ def main():
         bucketname = arguments['BUCKETNAME']
         file = arguments['FILENAME']
         # upload_file_by_name(provider, bucketname, file)
+
+    elif arguments['data'] and arguments['list']:
+
+        output_format = arguments["--format"] or 'table'
+        if output_format == "table":
+            config = Config()
+            print(config.table())
+
+        elif output_format == "yaml":
+            config = Config()
+            print(config)
 
     elif arguments['data'] and arguments['get']:
         provider = arguments['PROVIDER']

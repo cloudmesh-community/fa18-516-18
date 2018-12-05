@@ -1,7 +1,7 @@
 import oyaml as yaml
 import os
 from pprint import pprint
-
+from prettytable  import PrettyTable
 
 class Config(object):
 
@@ -28,3 +28,21 @@ class Config(object):
 
     def __str__(self):
         return yaml.dump(self.cloud)
+
+    def table(self):
+
+        x = PrettyTable(["No", "Provider", "Kind", "Location"])
+        x.align["No"] = "r"
+        x.align["Provider"] = "l"
+        x.align["Kind"] = "l"
+        x.align["Location"] = "l"
+
+        i = 1
+        for provider in self.data:
+            name = provider
+            kind = self.data[provider]["kind"]
+            location = self.data[provider]["location"]
+            x.add_row([i, name, kind, location])
+            i = i + 1
+
+        return x
