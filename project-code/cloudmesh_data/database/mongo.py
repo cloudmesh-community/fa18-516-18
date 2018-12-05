@@ -1,13 +1,16 @@
 from mongoengine import *
 import datetime
 from pymongo import MongoClient
+
+from cloudmesh_data.data.Config import Config
 from cloudmesh_data.data.util.retrieve_yaml_definition_properties import generate
 from cloudmesh_data.data.util import get_file_size_and_checksum
 
 #
 # BUG: needs to come from config
 #
-connect('mongoengine_test', host='localhost', port=27017)
+config = Config()
+connect(config.database()['database'], host=config.database()['host'], port=config.database()['port'])
 
 client = MongoClient('localhost', 27017)
 db = client['mongoengine_test']

@@ -18,6 +18,7 @@ class Config(object):
             try:
                 self.cloud = yaml.safe_load(f)
                 self.data = self.cloud['cloud']['data']
+                self.mongo = self.cloud['mongo']
             except yaml.YAMLError as exc:
                 print(exc)
                 pm = exc.problem_mark
@@ -25,6 +26,9 @@ class Config(object):
 
     def credentials(self, cloud):
         return self.data[cloud]['credentials']
+
+    def database(self):
+        return self.mongo
 
     def __str__(self):
         return yaml.dump(self.cloud)

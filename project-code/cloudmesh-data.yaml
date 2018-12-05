@@ -1,3 +1,7 @@
+mongo:
+  host: localhost
+  database: mongoengine_test
+  port: 27017
 cloud:
   data:
     azure:
