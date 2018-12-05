@@ -5,8 +5,8 @@ from os import listdir
 from os.path import isfile, join
 import pathlib
 
-class LocalProvider(DataProviderABC):
 
+class LocalProvider(DataProviderABC):
     name = "local"
 
     def __init__(self, cloud=None):
@@ -56,4 +56,3 @@ class LocalProvider(DataProviderABC):
     def exists(self, path):
         _path = os.path.expanduser(path)
         return os.path.exists(_path)
-

@@ -2,6 +2,7 @@ import oyaml as yaml
 import os
 from pprint import pprint
 
+
 class Config(object):
 
     def __init__(self, filename=None):
@@ -12,7 +13,6 @@ class Config(object):
 
         if filename is None:
             filename = os.path.expanduser("~/.cloudmesh/cloudmesh-data.yaml")
-
 
         with open(filename, 'r') as f:
             try:

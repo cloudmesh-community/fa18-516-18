@@ -1,6 +1,6 @@
 import re
 
-from cloudmesh_data.deprecated import google_cloud_download, google_cloud_upload, s3_download, s3_upload
+from deprecated import google_cloud_upload, s3_download, s3_upload, google_cloud_download
 
 
 def moveFile(filepath, targetcloud):

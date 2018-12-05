@@ -1,30 +1,34 @@
 from cloudmesh_data.database import mongo
-from cloudmesh_data.data.provider import s3
-from cloudmesh_data.deprecated import \
-    google_cloud_delete, \
-    google_cloud_download, \
-    google_cloud_list, \
-    google_cloud_upload, \
-    s3_delete, \
-    s3_download, \
-    s3_upload
+from deprecated import google_cloud_upload, google_cloud_delete, s3_delete, s3_download, s3_upload, \
+    google_cloud_download
 from cloudmesh_data.data.Config import Config
 from cloudmesh_data.data.provider.DataProvider import DataProvider
+
+
+def get_provider(kind):
+    if kind == 'local':
+        provider = DataProvider(kind)
+    elif kind == 'azure':
+        pass
+    elif kind == 'azure':
+        pass
+    return provider
+
 
 def get_files(service, bucketname):
     config = Config()
     kind = config['cloud']['data'][service]
 
+    provider =  get_provider(kind)
+
     list = None
+    list = provider.list(provider["location"])
 
-    if kind is 'local':
-        provider = DataProvider(service)
-        list = provider.list(provider["location"])
 
-#    if provider == 'aws':
-#        list = s3.list_objects(bucketname)
-#    elif provider == 'google':
-#        list = google_cloud_list.list_object(bucketname)
+    #    if provider == 'aws':
+    #        list = s3.list_objects(bucketname)
+    #    elif provider == 'google':
+    #        list = google_cloud_list.list_object(bucketname)
 
     return list
 
@@ -67,12 +71,3 @@ def delete_file(provider, bucketname, filename):
 
 def update_user_for_file(user_uuid, filename):
     mongo.update_user_for_file(user_uuid, filename)
-
-
-
-
-
-
-
-
-
