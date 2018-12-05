@@ -27,15 +27,13 @@ class Google(DataProviderABC):
             self.cloud = cloud
 
         localprovider = LocalProvider()
-        self.dir = LocalProvider.create(localprovider, str(os.getcwd()), 'test')
+        self.dir = LocalProvider.create(localprovider, str(os.getcwd()), self.cloud+'dump')
 
     def authenticate(self):
         logging.basicConfig(filename='debug.log', level=logging.DEBUG)
 
         config = Config()
-
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = \
-            config.credentials('google_cloud')['GOOGLE_CLOUD_CREDENTIALS_JSON']
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = config.credentials('google_cloud')['GOOGLE_CLOUD_CREDENTIALS_JSON']
 
         #
         # Why setting the os environment we have this in config
