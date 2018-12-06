@@ -4,7 +4,7 @@ Usage:
   cmdata data list [--format=FORMAT]
   cmdata set provider=PROVIDER
   cmdata set dir=BUCKET
-  cmdata data add PROVIDER BUCKETNAME FILENAME
+  cmdata data add PROVIDER FILENAME
   cmdata data get PROVIDER BUCKETNAME FILENAME USER_UUID
   cmdata data ls PROVIDER BUCKETNAME
   cmdata data copy FILENAME PROVIDER PROVIDER_BUCKET DEST DEST_BUCKET
