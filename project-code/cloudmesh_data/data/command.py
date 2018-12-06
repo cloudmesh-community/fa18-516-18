@@ -4,7 +4,7 @@ Usage:
   cmdata data list [--format=FORMAT]
   cmdata set provider=PROVIDER
   cmdata set dir=BUCKET
-  cmdata data add PROVIDER BUCKETNAME FILENAME
+  cmdata data add PROVIDER FILENAME
   cmdata data get PROVIDER BUCKETNAME FILENAME USER_UUID
   cmdata data ls PROVIDER BUCKETNAME
   cmdata data copy FILENAME PROVIDER PROVIDER_BUCKET DEST DEST_BUCKET
@@ -35,7 +35,7 @@ from docopt import docopt
 # from cloudmesh_data.data.file import rsync_file
 # from cloudmesh_data.data.file import delete_file
 # from cloudmesh_data.data.file import copy_file
-# from cloudmesh_data.data.file import upload_file_by_name
+from cloudmesh_data.data.file import upload_file_by_name
 # from cloudmesh_data.data.file import get_file_by_name
 # from cloudmesh_data.data.file import update_user_for_file
 from pprint import pprint
@@ -51,9 +51,8 @@ def main():
     arguments = docopt(__doc__, version=version)
     if arguments['data'] and arguments['add']:
         provider = arguments['PROVIDER']
-        bucketname = arguments['BUCKETNAME']
         file = arguments['FILENAME']
-        # upload_file_by_name(provider, bucketname, file)
+        upload_file_by_name(provider, file)
 
     elif arguments['data'] and arguments['list']:
 
