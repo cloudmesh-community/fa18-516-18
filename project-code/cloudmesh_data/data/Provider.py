@@ -3,11 +3,15 @@ from cloudmesh_data.data.provider.DataProvider import DataProvider
 
 class Provider(object):
 
+    def __init__(self, provider=None):
+        self.provider = DataProvider(provider)
+
     def get_provider(self, provider):
         if provider == 'local':
-            provider = DataProvider(provider)
+            self.provider = DataProvider(provider)
         elif provider == 'aws':
-            provider = DataProvider(provider)
+            self.provider = DataProvider(provider)
         elif provider == 'google':
-            provider = DataProvider(provider)
-        return provider
+            pass
+        return self.provider
+    
