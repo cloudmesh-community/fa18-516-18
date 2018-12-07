@@ -4,10 +4,6 @@ from cloudmesh_data.data.provider.DataProvider import DataProvider
 from cloudmesh_data.database.mongo import Mongo
 
 
-def get_provider(kind):
-    print('')
-
-
 def get_files(service):
     config = Config()
     kind = config.data[service]['kind']
@@ -18,15 +14,22 @@ def get_files(service):
 
 
 def get_file_by_name(service, filename, user_uuid):
-    provider = get_provider(service)
+    config = Config()
+    kind = config.data[service]['kind']
+    provider = Provider(kind)
+    provider = provider.get_provider(kind)
     file_path = provider.download(provider["location"], filename)
     mongo = Mongo()
     mongo.save_file_to_db(service, file_path, filename, user_uuid)
 
 
 def upload_file_by_name(service, filename):
-    provider = get_provider(service)
-    provider.upload(provider["location"], filename)
+    config = Config()
+    kind = config.data[service]['kind']
+    provider = Provider(kind)
+    provider = provider.get_provider(kind)
+    print(config.data[service]['location'])
+    provider.upload(kind, config.data[service]['location'], filename)
 
 
 def copy_file(filename, service, dest):
@@ -34,8 +37,11 @@ def copy_file(filename, service, dest):
         print("Target cloud needs to different than the source cloud")
         exit
     else:
-        provider = get_provider(service)
-        destination = get_provider(dest)
+        config = Config()
+        kind = config.data[service]['kind']
+        provider = Provider(kind)
+        provider = provider.get_provider(kind)
+        destination = provider.get_provider(dest)
         file_path = provider.download(provider["location"], filename)
         mongo = Mongo()
         mongo.save_file_to_db(service, file_path, filename)
@@ -47,7 +53,10 @@ def rsync_file(filename, source, dest):
 
 
 def delete_file(service, filename):
-    provider = get_provider(service)
+    config = Config()
+    kind = config.data[service]['kind']
+    provider = Provider(kind)
+    provider = provider.get_provider(kind)
     provider.delete(provider["location"], filename)
 
 

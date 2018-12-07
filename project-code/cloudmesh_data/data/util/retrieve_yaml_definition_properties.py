@@ -1,8 +1,8 @@
 import yaml
 import os
-import cloudmesh_data
+from cloudmesh_data import etc
 
-prefix_path = os.path.dirname(cloudmesh_data.__file__)
+prefix_path = os.path.dirname(etc.__file__)
 file_array = [f for f in os.listdir(prefix_path) if f.endswith('file.yml')]
 file_array.sort()  # file is sorted list
 

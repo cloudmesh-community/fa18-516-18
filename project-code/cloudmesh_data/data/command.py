@@ -21,15 +21,18 @@ Options:
 
 Description:
 
-   cmdata data get PROVIDER FILENAME USER_UUID
+    cmdata data ls PROVIDER
+
+        Description:
+
+    cmdata data add PROVIDER FILENAME
 
         Description:
 
 Example:
-   cmdata test
-   cmdata data add AWS richa-516 MapReduce.docx
+   cmdata data add google_cloud abc.txt
    cmdata data get AWS richa-516 MapReduce.docx 1234
-   cmdata data ls AWS richa-516
+   cmdata data ls AWS
    cmdata data copy xyz.txt AWS richa-516 GOOGLE richa-google-516
 """
 from docopt import docopt
