@@ -46,7 +46,10 @@ class Config(object):
         for provider in self.data:
             name = provider
             kind = self.data[provider]["kind"]
-            location = self.data[provider]["location"]
+            try:
+                location = self.data[provider]["location"]
+            except Exception as e:
+                location = 'Unknown'
             x.add_row([i, name, kind, location])
             i = i + 1
 
