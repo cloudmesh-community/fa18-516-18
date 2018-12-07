@@ -18,7 +18,7 @@ def get_file_by_name(service, filename, user_uuid):
     kind = config.data[service]['kind']
     provider = Provider(kind)
     provider = provider.get_provider(kind)
-    file_path = provider.download(provider["location"], filename)
+    file_path = provider.download(kind, config.data[service]['location'], filename)
     mongo = Mongo()
     mongo.save_file_to_db(service, file_path, filename, user_uuid)
 
@@ -41,10 +41,10 @@ def copy_file(filename, service, dest):
         provider = Provider(kind)
         provider = provider.get_provider(kind)
         destination = provider.get_provider(dest)
-        file_path = provider.download(provider["location"], filename)
+        file_path = provider.download(kind, config.data[service]['location'], filename)
         mongo = Mongo()
         mongo.save_file_to_db(service, file_path, filename)
-        destination.upload(provider["location"], filename)
+        destination.upload(kind, config.data[service]['location'], filename)
 
 
 def rsync_file(filename, source, dest):
@@ -56,7 +56,7 @@ def delete_file(service, filename):
     kind = config.data[service]['kind']
     provider = Provider(kind)
     provider = provider.get_provider(kind)
-    provider.delete(provider["location"], filename)
+    provider.delete(kind, config.data[service]['location'], filename)
 
 
 def update_user_for_file(user_uuid, filename):

@@ -38,3 +38,25 @@ class DataProvider(object):
             google = Google()
             return self.provider.upload(google, location, filename)
 
+    def download(self, provider, location, filename):
+        if provider == "local":
+            local = LocalProvider()
+            return self.provider.download(local , location, filename)
+        elif provider == "aws":
+            s3 = S3()
+            return self.provider.download(s3, location, filename)
+        elif provider == "google":
+            google = Google()
+            return self.provider.download(google, location, filename)
+
+    def delete(self, provider, location, filename):
+        if provider == "local":
+            local = LocalProvider()
+            return self.provider.delete(local , location, filename)
+        elif provider == "aws":
+            s3 = S3()
+            return self.provider.delete(s3, location, filename)
+        elif provider == "google":
+            google = Google()
+            return self.provider.delete(google, location, filename)
+

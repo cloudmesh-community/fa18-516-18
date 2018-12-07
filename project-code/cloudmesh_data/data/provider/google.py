@@ -56,7 +56,7 @@ class Google(DataProviderABC):
         """Downloads a blob from the bucket."""
         bucket = self.gcs_client.get_bucket(bucketname)
         blob = bucket.blob(filename)
-        file_path = self.dir + filename
+        file_path = self.dir + '/' + filename
         blob.download_to_filename(file_path)
         # print('Blob {} downloaded to {}.'.format(filename, self.config['local_directory']+filename))
         return file_path
