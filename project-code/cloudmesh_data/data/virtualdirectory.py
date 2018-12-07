@@ -11,10 +11,8 @@ def add_virtualdirectory(virtualdirname):
     else:
         print("Directory ", virtualdirname, " already exists")
 
-    prefix_path = os.path.dirname(cloudmesh_data.__file__)
-
+    #prefix_path = os.path.dirname(cloudmesh_data.__file__)
     dir_path = os.path.join(os.getcwd(), virtualdirname)
-    print(dir_path)
     mongo = Mongo()
     mongo.save_vdir_to_db(virtualdirname, '', str(os.path), str(dir_path))
     return dir_path

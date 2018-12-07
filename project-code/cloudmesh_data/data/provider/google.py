@@ -25,7 +25,6 @@ class Google(DataProviderABC):
         """Uploads a file to the bucket."""
         bucket = self.gcs_client.get_bucket(bucketname)
         blob = bucket.blob(filename)
-        #self.dir = '/home/richa/Documents/'
         blob.upload_from_filename(self.dir + '/' + filename)
         print('File {} uploaded to {}.'.format(
             self.dir + '/' + filename,

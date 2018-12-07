@@ -28,7 +28,6 @@ def upload_file_by_name(service, filename):
     kind = config.data[service]['kind']
     provider = Provider(kind)
     provider = provider.get_provider(kind)
-    print(config.data[service]['location'])
     provider.upload(kind, config.data[service]['location'], filename)
 
 

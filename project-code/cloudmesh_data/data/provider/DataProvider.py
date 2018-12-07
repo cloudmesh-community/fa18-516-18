@@ -35,7 +35,6 @@ class DataProvider(object):
             s3 = S3()
             return self.provider.upload(s3, location, filename)
         elif provider == "google":
-            print(self.provider)
             google = Google()
             return self.provider.upload(google, location, filename)
 
