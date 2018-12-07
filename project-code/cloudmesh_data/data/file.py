@@ -6,6 +6,7 @@ from cloudmesh_data.database.mongo import Mongo
 def get_provider(service):
     config = Config()
     kind = config['cloud']['data'][service]
+    #kind = config['cloud']['data'][service]['kind']
     provider = Provider()
     provider = provider.get_provider(kind)
     return provider
