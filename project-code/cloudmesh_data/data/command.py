@@ -23,29 +23,30 @@ Description:
 
     cmdata data ls PROVIDER
 
-        Description:
+        Description: CM command to list all the files in a Provider's bucket
 
     cmdata data add PROVIDER FILENAME
 
-        Description:
+        Description: CM command to upload a file from local directory to the Provider's bucket
 
     cmdata data get PROVIDER FILENAME USER_UUID
 
-        Description:
+        Description: CM command to download a file from the Provider's bucket to a local directory
+        and then save that file to MongoDB with the username assigned
 
     cmdata data copy FILENAME PROVIDER DEST
 
-        Description:
+        Description: CM command to copy a file from one Provider's bucket to another
 
     cmdata data del PROVIDER FILENAME
 
-        Description:
+        Description: CM command to delete a file from a Provider's bucket
 
 Example:
+   cmdata data ls google_cloud
    cmdata data add google_cloud abc.txt
    cmdata data get google_cloud abc.txt richa
-   cmdata data ls AWS
-   cmdata data copy xyz.txt AWS richa-516 GOOGLE richa-google-516
+   cmdata data copy xyz.txt AWS GOOGLE
    cmdata data del google_cloud abc.txt
 """
 from docopt import docopt
@@ -93,7 +94,6 @@ def main():
         files = get_files(provider)
         config = Config()
         config.print(files)
-
 
     elif arguments['data'] and arguments['copy']:
         file = arguments['FILENAME']
