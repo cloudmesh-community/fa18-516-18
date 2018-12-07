@@ -24,7 +24,7 @@ cloud:
       kind:                               google
       credentials:
         GOOGLE_CLOUD_CREDENTIALS_JSON:    '~/.cloudmesh/Google-Storage.json'
-      location:                        'TBD'
+      location:                        'richa-cloud-516'
     local:
       kind:                               local
       location:                        '~/.cloudmesh/local'

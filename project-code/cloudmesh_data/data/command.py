@@ -6,7 +6,7 @@ Usage:
   cmdata set dir=BUCKET
   cmdata data add PROVIDER FILENAME
   cmdata data get PROVIDER FILENAME USER_UUID
-  cmdata data ls PROVIDER BUCKETNAME
+  cmdata data ls PROVIDER
   cmdata data copy FILENAME PROVIDER PROVIDER_BUCKET DEST DEST_BUCKET
   cmdata data rsync FILENAME SOURCE DEST
   cmdata data del PROVIDER BUCKETNAME FILENAME
@@ -34,7 +34,7 @@ Example:
 """
 from docopt import docopt
 
-# from cloudmesh_data.data.file import get_files
+from cloudmesh_data.data.file import get_files
 # from cloudmesh_data.data.file import rsync_file
 # from cloudmesh_data.data.file import delete_file
 # from cloudmesh_data.data.file import copy_file
@@ -77,14 +77,10 @@ def main():
 
     elif arguments['data'] and arguments['ls']:
         provider = arguments['PROVIDER']
-        bucket = arguments['BUCKETNAME']
-        # files = get_files(provider, bucket)
-        # x = PrettyTable(["SNo", "Filename"])
-        # i = 1
-        # for file in files:
-        #    x.add_row([i, file])
-        #    i = i + 1
-        #print(x)
+        files = get_files(provider)
+        config = Config()
+        config.print(files)
+
 
     elif arguments['data'] and arguments['copy']:
         file = arguments['FILENAME']

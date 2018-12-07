@@ -1,20 +1,19 @@
 from cloudmesh_data.data.Provider import Provider
 from cloudmesh_data.data.Config import Config
+from cloudmesh_data.data.provider.DataProvider import DataProvider
 from cloudmesh_data.database.mongo import Mongo
 
 
-def get_provider(service):
-    config = Config()
-    kind = config['cloud']['data'][service]
-    #kind = config['cloud']['data'][service]['kind']
-    provider = Provider()
-    provider = provider.get_provider(kind)
-    return provider
+def get_provider(kind):
+    print('')
 
 
 def get_files(service):
-    provider = get_provider(service)
-    files_list = provider.list(provider["location"])
+    config = Config()
+    kind = config.data[service]['kind']
+    provider = Provider(kind)
+    provider = provider.get_provider(kind)
+    files_list = provider.list(kind, config.data[service]['location'])
     return files_list
 
 

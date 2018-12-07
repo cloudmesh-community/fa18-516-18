@@ -54,3 +54,11 @@ class Config(object):
             i = i + 1
 
         return x
+
+    def print(self, files):
+        x = PrettyTable(["SNo", "Filename"])
+        i = 1
+        for file in files:
+            x.add_row([i, file])
+            i = i + 1
+        print(x)

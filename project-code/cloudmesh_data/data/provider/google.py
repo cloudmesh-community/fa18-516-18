@@ -8,16 +8,11 @@ from cloudmesh_data.data.provider.local import LocalProvider
 
 class Google(DataProviderABC):
 
-    def __init__(self, cloud=None):
-        if cloud is None:
-            self.cloud = "google"
-        else:
-            self.cloud = cloud
-
+    def __init__(self):
         config = Config()
         self.gcs_client = storage.Client.from_service_account_json(config.credentials('google_cloud')['GOOGLE_CLOUD_CREDENTIALS_JSON'])
         localprovider = LocalProvider()
-        self.dir = LocalProvider.create(localprovider, str(os.getcwd()), self.cloud+'dump')
+        self.dir = LocalProvider.create(localprovider, str(os.getcwd()), 'googleDump')
 
     def authenticate(self):
         logging.basicConfig(filename='debug.log', level=logging.DEBUG)
