@@ -1,9 +1,15 @@
+#!flask/bin/python
+from flask import Flask
+
 from cloudmesh_data.data.Provider import Provider
 from cloudmesh_data.data.Config import Config
 from cloudmesh_data.data.provider.DataProvider import DataProvider
 from cloudmesh_data.database.mongo import Mongo
 
+app = Flask(__name__)
 
+
+@app.route("/files", methods=["GET"])
 def get_files(service):
     config = Config()
     kind = config.data[service]['kind']
@@ -13,6 +19,7 @@ def get_files(service):
     return files_list
 
 
+@app.route("/file", methods=["GET"])
 def get_file_by_name(service, filename, user_uuid):
     config = Config()
     kind = config.data[service]['kind']
@@ -23,6 +30,7 @@ def get_file_by_name(service, filename, user_uuid):
     mongo.save_file_to_db(service, file_path, filename, user_uuid)
 
 
+@app.route("/file", methods=["POST"])
 def upload_file_by_name(service, filename):
     config = Config()
     kind = config.data[service]['kind']
@@ -31,6 +39,7 @@ def upload_file_by_name(service, filename):
     provider.upload(kind, config.data[service]['location'], filename)
 
 
+@app.route("/file/copy", methods=["POST"])
 def copy_file(filename, service, dest):
     if service == dest:
         print("Target cloud needs to different than the source cloud")
@@ -47,10 +56,12 @@ def copy_file(filename, service, dest):
         destination.upload(kind, config.data[service]['location'], filename)
 
 
+@app.route("/file/rsync", methods=["POST"])
 def rsync_file(filename, source, dest):
     print('')
 
 
+@app.route("/file/delete", methods=["DELETE"])
 def delete_file(service, filename):
     config = Config()
     kind = config.data[service]['kind']
@@ -62,3 +73,7 @@ def delete_file(service, filename):
 def update_user_for_file(user_uuid, filename):
     mongo = Mongo()
     mongo.update_user_for_file(user_uuid, filename)
+
+
+if __name__ == '__main__':
+    app.run()
