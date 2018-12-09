@@ -197,7 +197,6 @@ This project also has RESTFUL APIs to perform all the above operations and their
 
 
 
-
 For User APIs, please refer to screenshot below for Swagger UI for User APIs (refer to UserSwaggerAPI.png).
 
 ![UserSwaggerAPI](images/UserSwaggerAPI.png){#fig:UserSwaggerAPI}
@@ -209,6 +208,12 @@ For User APIs, please refer to screenshot below for Swagger UI for User APIs (re
 | /cloudmesh/user/profile/{uuid} | GET  | Returns the profile of a user while looking it up with the UUID | Path Param: UUID
 
 ## Dataset
+
+REST API Output for getting files list
+API URL - http://localhost:5000/cloudmesh_data/files?service=google_cloud
+
+
+
 
 Database records for File table. This shows that file_content is stored in another table as per GridFS described above in fs.chunks and 
 fs.files:
