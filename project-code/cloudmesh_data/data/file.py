@@ -1,9 +1,8 @@
 #!flask/bin/python
 from flask import Flask
-
+from flask import jsonify
 from cloudmesh_data.data.Provider import Provider
 from cloudmesh_data.data.Config import Config
-from cloudmesh_data.data.provider.DataProvider import DataProvider
 from cloudmesh_data.database.mongo import Mongo
 
 app = Flask(__name__)
@@ -16,7 +15,13 @@ def get_files(service):
     provider = Provider(kind)
     provider = provider.get_provider(kind)
     files_list = provider.list(kind, config.data[service]['location'])
-    return files_list
+    i = 1
+    filelist = []
+    for value in files_list:
+        list = [{'SNo': i, 'Filename': value}]
+        i = i + 1
+        filelist.append(list)
+    return jsonify(results=filelist)
 
 
 @app.route("/file", methods=["GET"])
