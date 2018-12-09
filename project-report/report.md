@@ -209,10 +209,10 @@ For User APIs, please refer to screenshot below for Swagger UI for User APIs (re
 
 ## Dataset
 
-REST API Output for getting files list (refer to FileListAPIOutput.png)
+REST API Output for getting files list (refer to FileListAPIOutput.PNG)
 API URL - http://localhost:5000/cloudmesh_data/files?service=google_cloud
 
-![FileListAPIOutput](images/FileListAPIOutput.png){#fig:FileListAPIOutput}
+![FileListAPIOutput](images/FileListAPIOutput.PNG){#fig:FileListAPIOutput}
 
 
 Database records for File table. This shows that file_content is stored in another table as per GridFS described above in fs.chunks and 
