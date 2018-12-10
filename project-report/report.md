@@ -101,30 +101,54 @@ Now we can run all cmdata commands as given below. We can also test if cmdata is
 
 ```
 Usage:
-  cmdata test
+  cmdata data list [--format=FORMAT]
   cmdata set provider=PROVIDER
   cmdata set dir=BUCKET
-  cmdata data add PROVIDER BUCKETNAME FILENAME
-  cmdata data get PROVIDER BUCKETNAME FILENAME USER_UUID
-  cmdata data ls PROVIDER BUCKETNAME
-  cmdata data copy FILENAME PROVIDER PROVIDER_BUCKET DEST DEST_BUCKET
+  cmdata data add PROVIDER FILENAME
+  cmdata data get PROVIDER FILENAME USER_UUID
+  cmdata data ls PROVIDER
+  cmdata data copy FILENAME PROVIDER DEST
   cmdata data rsync FILENAME SOURCE DEST
-  cmdata data del PROVIDER BUCKETNAME FILENAME
+  cmdata data del PROVIDER FILENAME
   cmdata update user USER file FILENAME
   cmdata (-h | --help)
   cmdata --version
+
 Options:
   -h --help     Show this screen.
   --version     Show version.
   --config      Location of a cmdata.yaml file
+
 Description:
-   put a description here
+
+    cmdata data ls PROVIDER
+
+        Description: CM command to list all the files in a Provider's bucket
+
+    cmdata data add PROVIDER FILENAME
+
+        Description: CM command to upload a file from local directory to the Provider's bucket
+
+    cmdata data get PROVIDER FILENAME USER_UUID
+
+        Description: CM command to download a file from the Provider's bucket to a local directory
+        and then save that file to MongoDB with the username assigned
+
+    cmdata data copy FILENAME PROVIDER DEST
+
+        Description: CM command to copy a file from one Provider's bucket to another
+
+    cmdata data del PROVIDER FILENAME
+
+        Description: CM command to delete a file from a Provider's bucket
+
 Example:
-   cmdata test
-   cmdata data add AWS richa-516 MapReduce.docx
-   cmdata data get AWS richa-516 MapReduce.docx 1234
-   cmdata data ls AWS richa-516
-   cmdata data copy xyz.txt AWS richa-516 GOOGLE richa-google-516
+   cmdata data ls google_cloud
+   cmdata data add google_cloud abc.txt
+   cmdata data get google_cloud abc.txt richa
+   cmdata data copy xyz.txt AWS GOOGLE
+   cmdata data del google_cloud abc.txt
+   
 ```
 
 We also have MongoDB installed to save the downloaded files into the database. We are using MongoEngine as Document-Object Mapper to add records and save the file as a FileField into DB. File is stored into MongoDB using GridFS.
@@ -164,13 +188,12 @@ This project also has RESTFUL APIs to perform all the above operations and their
 
 |  API Path                  | Type     | Description                           | Input Parameters                  |
 | ----------------           | -------- | ------------------------------------- | ----------------------------------|
-| /cloudmesh/files/{provider}| GET      | Returns all files from a specific provider  | Path Param: Provider name   Query Param: Bucket Name
-| /cloudmesh/file/{provider} | GET      | Returns a file for a specifc provider       | Path Param: Provider name   Query Param: Bucket Name, filename, user_uuid
-| /cloudmesh/file/{provider} | POST    | Upload a file to a provider   | Path Param: Provider name   Query Param: Bucket Name, filename
-| /cloudmesh/file/copy       | POST    | Copy a file to a provider     | Query Param: Filename, Provider, Provider_bucket, destination, destination_bucket
-| /cloudmesh/file/rsync      | POST    | Rsync a file to another directory | Query Param: Filename, Provider, destination
-| /cloudmesh/file/delete     | DELETE  | Delete a file from a directory    | Query Param: Filename, Provider, Bucketname
-
+| /cloudmesh/files?service={provider}| GET      | Returns all files from a specific provider  | Query Param: Provider name  
+| /cloudmesh/file?service={provider}&filename={filename}&user_uuid={user} | GET      | Returns a file for a specifc provider       | Query Param: Provider Name, filename, user_uuid
+| /cloudmesh/file?service={provider}&filename={filename} | POST    | Upload a file to a provider   | Query Param: Provider name,filename
+| /cloudmesh/file/copy?service={provider}&filename={filename}&dest={destination}     | POST    | Copy a file to a provider     | Query Param: Filename, Provider, destination
+| /cloudmesh/file/rsync?service={provider}&filename={filename}&dest={destination}    | POST    | Rsync a file to another directory | Query Param: Filename, Provider, destination
+| /cloudmesh/file/delete?service={provider}&filename={filename}     | DELETE  | Delete a file from a directory    | Query Param: Filename, Provider
 
 
 
@@ -185,6 +208,12 @@ For User APIs, please refer to screenshot below for Swagger UI for User APIs (re
 | /cloudmesh/user/profile/{uuid} | GET  | Returns the profile of a user while looking it up with the UUID | Path Param: UUID
 
 ## Dataset
+
+REST API Output for getting files list (refer to FileListAPIOutput.PNG)
+API URL - http://localhost:5000/cloudmesh_data/files?service=google_cloud
+
+![FileListAPIOutput](images/FileListAPIOutput.PNG){#fig:FileListAPIOutput}
+
 
 Database records for File table. This shows that file_content is stored in another table as per GridFS described above in fs.chunks and 
 fs.files:

@@ -15,7 +15,9 @@ google-api-python-client
 boto3
 connexion
 flask
+flask_restful
 mongoengine
 PrettyTable
 nose
 yamllint
+connexion[swagger-ui]
