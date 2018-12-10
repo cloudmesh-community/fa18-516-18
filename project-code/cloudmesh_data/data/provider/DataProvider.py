@@ -2,7 +2,9 @@ from cloudmesh_data.data.provider.google import Google
 from cloudmesh_data.data.provider.local import LocalProvider
 from cloudmesh_data.data.provider.s3 import S3
 
-
+#
+# GVL I do not uderstand why when we identify a type of a provider that is also again a parameter to the declation, this seems not correct
+#
 class DataProvider(object):
 
     def __init__(self, kind):
@@ -17,6 +19,11 @@ class DataProvider(object):
             self.provider = cloudmesh_data.data.provider.google.Google
 
     def list(self, provider, location):
+        #
+        # why is sthis not just
+        # return self.provider.list (location)
+        # same question for all the other methods
+        #
         if provider == "local":
             local = LocalProvider()
             return self.provider.list(local , location)

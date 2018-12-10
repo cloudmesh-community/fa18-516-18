@@ -5,7 +5,9 @@ from os import listdir
 from os.path import isfile, join
 import pathlib
 
-
+#
+# Does this have the same signature as the DataProviderABC?
+#
 class LocalProvider(DataProviderABC):
     name = "local"
 
