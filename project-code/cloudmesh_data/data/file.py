@@ -7,6 +7,9 @@ from cloudmesh_data.database.mongo import Mongo
 
 app = Flask(__name__)
 
+#
+# GVL: I DO NOT UNDERSTAND WHAT YOU DO, THIS IS WHAT OPEN API DOES FOR YOU .....
+# THIS SI NOW A COMPLETE DIFFERENT FRAMEWORK
 
 @app.route("/files", methods=["GET"])
 def get_files(service):
