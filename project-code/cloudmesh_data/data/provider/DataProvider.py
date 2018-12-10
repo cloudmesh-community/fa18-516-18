@@ -19,6 +19,11 @@ class DataProvider(object):
             self.provider = cloudmesh_data.data.provider.google.Google
 
     def list(self, provider, location):
+        #
+        # why is sthis not just
+        # return self.provider.list (location)
+        # same question for all the other methods
+        #
         if provider == "local":
             local = LocalProvider()
             return self.provider.list(local , location)
