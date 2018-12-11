@@ -1,6 +1,6 @@
 # !/bin/sh
-cmdata test
-#cmdata data add MapReduce.docx
-#cmdata data get MapReduce.docx
-#cmdata data ls aws
-cmdata data move xyz aws google
+cmdata data ls google_cloud
+cmdata data add google_cloud abc.txt
+cmdata data get google_cloud abc.txt richa
+cmdata data copy xyz.txt AWS GOOGLE
+cmdata data del google_cloud abc.txt
