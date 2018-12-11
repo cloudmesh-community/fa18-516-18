@@ -11,9 +11,9 @@ test:
 	test/test.sh
 
 file:
-    @echo "----------------------LIST OF FILES FROM GOOGLE------------------"
-    curl GET "http://localhost:5000/cloudmesh_data/files?service=google_cloud"
-    sleep 5
+	@echo "----------------------LIST OF FILES FROM GOOGLE------------------"
+	curl GET "http://localhost:5000/cloudmesh_data/files?service=google_cloud"
+	sleep 5
 	@echo "---------------------DOWNLOAD A FILE FROM GOOGLE-----------------"
 	curl GET "http://localhost:5000/cloudmesh_data/file?service=google_cloud&filename=MapReduce.docx&user_uuid=richa"
 	@echo "---------------------FILE DOWNLOADED TO GOOGLE PROVIDER DIRECTORY CREATED------------------"
