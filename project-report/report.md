@@ -30,9 +30,9 @@ This project requires knowledge about Cloud Providers like AWS, Azure, Google Cl
 
 ## Architecture
 
-Please refer to below diagram #fig:Architecture for architecture of this project.
+Please refer to below diagram #fig:fa18-516-18_Architecture.png for architecture of this project.
 
-![Architecture](images/Architecture.png){#fig:Architecture}
+![Architecture](images/fa18-516-18_Architecture.png){#fig:fa18-516-18_Architecture.png}
 
 ## Design
 
