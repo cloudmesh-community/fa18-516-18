@@ -20,4 +20,3 @@ mongoengine
 PrettyTable
 nose
 yamllint
-connexion[swagger-ui]
