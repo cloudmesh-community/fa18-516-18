@@ -1,4 +1,5 @@
 server:
+    pip install -e .
 	python cloudmesh_data/data/server.py
 
 test:
