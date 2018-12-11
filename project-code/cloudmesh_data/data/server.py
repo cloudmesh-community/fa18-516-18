@@ -2,7 +2,7 @@
 Main module of the server file
 """
 
-# 3rd party moudles
+# 3rd party modules
 
 
 
@@ -10,6 +10,7 @@ Main module of the server file
 import connexion as connexion
 from flask import render_template
 
+# Creating application instance
 app = connexion.App(__name__, specification_dir="./")
 
 # Read the swagger.yml file to configure the endpoints
