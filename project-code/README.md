@@ -2,6 +2,8 @@
 
 The objective of this project is to manage data across different cloud providers. We are going to build an RESTFUL OpenAPI for managing the data between all the cloud storages. We will analyse how these different clouds work and then build python methods to handle data across them. Final step will be to expose these functionalities as a RESTFUL API. This way we can also take advantage of cloud providers for cheaper solutions for storage by dividing the data across them. Since this project has its own MongoDB and User profiling so it can be used a file storage and manager in itself.
 
+Complete report with sample output is at [Report.md](https://github.com/cloudmesh-community/fa18-516-18/blob/master/project-report/report.md)
+
 
 ## Steps to be followed for setup:
 
