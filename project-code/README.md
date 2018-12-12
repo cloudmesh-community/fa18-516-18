@@ -13,7 +13,7 @@ Complete report with sample output is at [Report.md](https://github.com/cloudmes
 ```
 
 2. Make accounts in AWS and Google Cloud
-3. Follow steps below to access these Cloud Providers from Python
+3. Follow steps below to access these Cloud Providers [AWS](https://github.com/cloudmesh-community/fa18-516-18/blob/master/project-code/README.md#aws-access-from-python) and [Google Cloud](https://github.com/cloudmesh-community/fa18-516-18/blob/master/project-code/README.md#google-cloud-platform) from Python.
 4. Now run following command to access our code and running "cmdata" commands
 ```
   pip install -e .
