@@ -26,7 +26,7 @@ Complete report with sample output is at [Report.md](https://github.com/cloudmes
   cmdata data add google_cloud Test.txt
 ```
 
-6. There are REST APIs as well for these functionalities.
+6. There are REST APIs as well for these functionalities. Run below commands to start the server and then run curl commands for APIs
 ```
    make server
    make file
