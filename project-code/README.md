@@ -29,7 +29,7 @@ Complete report with sample output is at [Report.md](https://github.com/cloudmes
 6. There are REST APIs as well for these functionalities.
 ```
    make server
-	 make file
+   make file
 ```
 
 
