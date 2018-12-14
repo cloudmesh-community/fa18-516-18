@@ -1,4 +1,4 @@
-# Manage Files Across Cloud Providers :smiley: fa18-516-18
+# Manage Files Across Cloud Providers
 
 | Richa Rastogi
 | rirastog@iu.edu
